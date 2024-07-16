@@ -23,10 +23,7 @@ body{
 }
 
  // ABOUT CONTAINER
-.about-container{
-  min-height: 100dvh
-}
-
+ /*
 .about-container h1{
   font-family: "Figtree", "Helvetica Neue";
   color: #333333ee;
@@ -40,3 +37,54 @@ body{
   color: #757575;
   font-size: 1.1rem;
 }
+*/
+
+.font-figtree {
+  font-family: "Figtree", "Helvetica Neue";
+}
+
+.about-container h1{
+  color: #333333d0;
+  letter-spacing: -0.04em;
+}
+
+.about-container p{
+  color: #757575;
+  line-height: 1.4;
+}
+
+.about-left{
+  background-color: white;
+}
+
+.about-center {
+  background: linear-gradient(
+    to bottom right,
+    white 0%,
+    white 50%,
+    rgba(0, 0, 0, 0.02) 50%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+}
+
+.about-right{
+  background-color:rgba(0, 0, 0, 0.02);
+}
+
+/*
+.about-left{
+  background-color: white;
+}
+.about-center {
+  background: linear-gradient(
+    to bottom right,
+    white 0%,
+    white 50%,
+    rgba(0, 0, 0, 0.02) 50%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+}
+
+.about-right{
+  background-color: rgba(0,0,0,0.02);
+}*/
