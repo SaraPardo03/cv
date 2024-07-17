@@ -43,6 +43,17 @@ body{
   font-family: "Figtree", "Helvetica Neue";
 }
 
+.about-container{
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    white 0%,
+    white 50%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
 .about-container h1{
   color: #333333d0;
   letter-spacing: -0.04em;
@@ -57,34 +68,75 @@ body{
   background-color: white;
 }
 
+
 .about-center {
   background: linear-gradient(
     to bottom right,
     white 0%,
     white 50%,
-    rgba(0, 0, 0, 0.02) 50%,
-    rgba(0, 0, 0, 0.02) 100%
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
   );
 }
 
 .about-right{
-  background-color:rgba(0, 0, 0, 0.02);
+  background-color:rgba(0, 0, 0, 1);
 }
 
-/*
-.about-left{
-  background-color: white;
+
+/* ##################################################
+EXPERIENCE PAGE 
+###################################################*/ 
+
+.experiences-container{
+  min-height: 100vh;
 }
-.about-center {
+
+.experiences-container span{
+  color: #333333ab;
+}
+
+.experiences-container a{
+  color: #445c91ab;
+}
+
+.experiences-container h2{
+  color: #333333d0;
+}
+
+.experiences-container h4{
+  color: #333333d0;
+  letter-spacing: -0.04em;
+}
+
+.experiences-container h6{
+  color: #333333ab;
+}
+
+.time-line{
+  max-width: 22px;
+  background-color: red;
+  position: relative;
   background: linear-gradient(
-    to bottom right,
-    white 0%,
-    white 50%,
-    rgba(0, 0, 0, 0.02) 50%,
-    rgba(0, 0, 0, 0.02) 100%
-  );
+    to right, 
+    transparent 0%, 
+    transparent calc(50% - 0.81px), 
+    rgb(212, 212, 212) calc(50% - 0.8px), 
+    rgb(212,212,212) calc(50% + 0.8px), 
+    transparent calc(50% + 0.81px), 
+    transparent 100%); 
 }
 
-.about-right{
-  background-color: rgba(0,0,0,0.02);
-}*/
+.time-line .dot{
+  margin-left: 3px;
+  width: 16px;
+  height: 16px;
+  border:solid rgb(212, 212, 212) 2px;
+  background:white;
+  border-radius: 10px;
+}
+
+
+.educations-container{
+  min-height: 100vh;
+}
