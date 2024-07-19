@@ -22,23 +22,6 @@ body{
   margin: 0px;
 }
 
- // ABOUT CONTAINER
- /*
-.about-container h1{
-  font-family: "Figtree", "Helvetica Neue";
-  color: #333333ee;
-  font-size: 3.5rem;
-  letter-spacing: -0.03em;
-  font-weight: 600;
-}
-
-.about-container p{
-  font-family: "Figtree", "Helvetica Neue";
-  color: #757575;
-  font-size: 1.1rem;
-}
-*/
-
 .font-figtree {
   font-family: "Figtree", "Helvetica Neue";
 }
@@ -61,7 +44,6 @@ body{
 
 .about-container p{
   color: #757575;
-  line-height: 1.4;
 }
 
 .about-left{
@@ -89,16 +71,13 @@ EXPERIENCE PAGE
 ###################################################*/ 
 
 .experiences-container{
-  min-height: 100vh;
+  //min-height: 100vh;
 }
 
 .experiences-container span{
   color: #333333ab;
 }
 
-.experiences-container a{
-  color: #445c91ab;
-}
 
 .experiences-container h2{
   color: #333333d0;
@@ -106,12 +85,12 @@ EXPERIENCE PAGE
 
 .experiences-container h4{
   color: #333333d0;
-  letter-spacing: -0.04em;
 }
 
 .experiences-container h6{
   color: #333333ab;
 }
+
 
 .time-line{
   max-width: 22px;
@@ -136,7 +115,28 @@ EXPERIENCE PAGE
   border-radius: 10px;
 }
 
+/* ##################################################
+SKILLS PAGE 
+###################################################*/ 
+.skills-container h2{
+  color: #333333d0;
+}
 
-.educations-container{
-  min-height: 100vh;
+
+.skills-left{
+  background-color: white;
+}
+
+
+.skills-right{
+  background-color: black;
+}
+
+.skills-container .progress{
+  height: 0.9rem;
+  font-size: 0.75rem;
+}
+
+.progressBarHolder{
+  background-color: #E9ECEF !important;
 }
