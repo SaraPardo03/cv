@@ -14,7 +14,7 @@ export function Experiences(){
     </Row>
     <section className='experiences-list p-0 ps-1 pe-1'>
       <Row>
-        <Col className='d-none d-md-block'>
+        <Col className='col-4 d-none d-md-block'>
           <h6 className='fw-light text-uppercase text-end p-0 pt-2'>2016 - 2022</h6>
         </Col>
         <Col className='time-line p-0 pt-2'>
@@ -25,12 +25,13 @@ export function Experiences(){
           <h6 className='d-block d-md-none fw-light text-uppercase  p-0 pt-2'>2016 - 2022</h6>
           <h4 className='title fw-bold p-0 mb-0'>Développeuse full-stack </h4>
           <span className='d-block mb-4'>Topnet Sa | Genève</span>
-          <p className='mb-5'>J’ai contribué au développement d'applications métiers en utilisant EXTJS, JavaScript, HTML5, CSS3 et le modèle MVC pour le front-end, ainsi que PHP, SQL, Bash et la POO pour le back-end. J'ai analysé et intégré des processus RH, commerciaux et d'exploitation, et réalisé des tests pour garantir la qualité des développements. J'ai estimé et planifié les projets, rédigé des documentations techniques et des guides utilisateurs, formé et supporté les utilisateurs, et conçu des maquettes d'écrans. J'ai également géré les versions avec GIT, assurant une collaboration efficace et la continuité des développements.</p></Col>
+          <p className='mb-5'>J’ai contribué au développement d'applications métiers en utilisant EXTJS, JavaScript, HTML5, CSS3 et le modèle MVC pour le front-end, ainsi que PHP, SQL, Bash et la POO pour le back-end. J'ai analysé et intégré des processus RH, commerciaux et d'exploitation, et réalisé des tests pour garantir la qualité des développements. J'ai estimé et planifié les projets, rédigé des documentations techniques et des guides utilisateurs, formé et supporté les utilisateurs, et conçu des maquettes d'écrans. J'ai également géré les versions avec GIT, assurant une collaboration efficace et la continuité des développements.</p>
+        </Col>
       </Row>
     </section>
     <section className='experiences-list p-0 ps-1 pe-1'>
       <Row>
-        <Col className='d-none d-md-block'>
+        <Col className='col-4 d-none d-md-block'>
           <h6 className='fw-light text-uppercase text-end p-0 pt-2'>2008 - 2013</h6>
         </Col>
         <Col className='time-line p-0 pt-2'>
@@ -41,7 +42,8 @@ export function Experiences(){
           <h6 className='d-block d-md-none fw-light text-uppercase  p-0 pt-2'>2008 - 2013</h6>
           <h4 className='fw-bold p-0 mb-0'>Apprentie informaticienne</h4>
           <span className='d-block mb-4'>Hyl-Informatique | Genève</span>
-          <p className='mb-5'>J'ai développé des sites web dynamiques et responsives avec HTML5, CSS3, PHP et SQL, tout en gérant des bases de données et en assurant des sauvegardes et restaurations. J'ai également fourni un support technique et une aide à la clientèle de qualité, tout en vendant, installant et configurant du matériel informatique.</p></Col>
+          <p className='mb-5'>J'ai développé des sites web dynamiques et responsives avec HTML5, CSS3, PHP et SQL, tout en gérant des bases de données et en assurant des sauvegardes et restaurations. J'ai également fourni un support technique et une aide à la clientèle de qualité, tout en vendant, installant et configurant du matériel informatique.</p>
+        </Col>
       </Row>
     </section>
   </section>

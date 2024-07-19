@@ -14,7 +14,7 @@ export function Educations(){
     </Row>
     <section className='experiences-list p-0 ps-1 pe-1'>
       <Row>
-        <Col className='d-none d-md-block'>
+        <Col className='col-4 d-none d-md-block'>
           <h6 className='fw-light text-uppercase text-end p-0 pt-2'>mai- juin 2024</h6>
         </Col>
         <Col className='time-line p-0 pt-2'>
@@ -31,7 +31,7 @@ export function Educations(){
     </section>
     <section className='experiences-list p-0 ps-1 pe-1'>
       <Row>
-        <Col className='d-none d-md-block'>
+        <Col className='col-4 d-none d-md-block'>
           <h6 className='fw-light text-uppercase text-end p-0 pt-2'>février- mars 2024</h6>
         </Col>
         <Col className='time-line p-0 pt-2'>
@@ -47,7 +47,7 @@ export function Educations(){
     </section>
     <section className='experiences-list p-0 ps-1 pe-1'>
       <Row>
-        <Col className='d-none d-md-block'>
+        <Col className='col-4 d-none d-md-block'>
           <h6 className='fw-light text-uppercase text-end p-0 pt-2'>2013-2014</h6>
         </Col>
         <Col className='time-line p-0 pt-2'>
@@ -63,7 +63,7 @@ export function Educations(){
     </section>
     <section className='experiences-list p-0 ps-1 pe-1'>
       <Row>
-        <Col className='d-none d-md-block'>
+        <Col className='col-4 d-none d-md-block'>
           <h6 className='fw-light text-uppercase text-end p-0 pt-2'>2008-2013</h6>
         </Col>
         <Col className='time-line p-0 pt-2'>
