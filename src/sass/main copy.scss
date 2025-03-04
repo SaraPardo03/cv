@@ -1,0 +1,666 @@
+
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// tailwind-variables.scss
+
+/* #########################################################
+VARS
+############################################################ */
+
+$primary:#F9F9F9;
+$secondary: #7FC8F8;
+$accent: #F87575;
+$dark: #534B62;
+$light: #F9F9F9;
+
+.no-scroll {
+  overflow: hidden;
+}
+
+#main-nav{
+  .nav-logo-text{
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  .nav-logo-clip{
+    background-color:$accent;
+    padding-right: 20px;
+    clip-path: polygon(0 0, 100% 0%, 85% 100%, 0% 100%);
+    width: 100%;
+    transition: width 1.5s ease;
+  }
+  .nav-logo-clip.shrink {
+    clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+    padding-right: 30px;
+    width: 35px;
+  }
+
+  .icon-open-nav::before{
+    color: $accent;
+    transform: rotate(270deg);
+    font-size: 25px;
+  }
+}
+
+#main-nav-mobile{
+  visibility: hidden;
+  position: fixed;
+  z-index: 200;
+  height: calc(100vh - 80px);
+  width: 100vw;
+  background: #ebeef07c;
+  transition: all 0.8s ease-in-out;
+
+  ul{
+    padding: 0px;
+    width: 0px;
+    height: 100%;
+    background-color: $accent;
+    clip-path: polygon(0 0, 100% 0%, 35% 100%, 0% 100%);
+    transition: all 0.8s ease-in-out;
+
+
+    li{
+      text-wrap: nowrap;
+      
+
+      a{
+        display: block;
+        align-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: 25px;
+        color: $light;
+      }
+    }
+
+    li:hover a{
+      color: $dark;
+    }
+  }
+}
+
+#main-nav-mobile.show{
+  visibility: visible;
+  ul{
+    padding: 25px;
+    width: 100vw;
+  }
+}
+
+/* #########################################################
+VARS
+############################################################ */
+/*
+$mainNavHeight : 80px;
+
+$primaryColor :#ffffff;//#cecece;
+$secondaryColor :#33495D;
+
+$textOnSecondary : #2B3035;
+$textlightOnSecondary : #8a8a8a;
+
+$textOnPrimary: #ffffff;
+$textLightOnPrimary: #F8EDE3;
+
+*/
+/* -----------------------------------------------------------
+    FONTS
+------------------------------------------------------------*/
+/* figtre v Bold */
+@font-face {
+  font-family: 'Figtree';
+  src: url('../assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Figtre variable Italic */
+@font-face {
+  font-family: 'Figtree';
+  src: url('../assets/fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+body{
+  margin: 0px;
+  font-family: "Figtree", "Helvetica Neue";
+  color: $primaryColor;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+span {
+  font-family: "Figtree", "Helvetica Neue";
+  color: $textOnSecondary;
+}
+
+/*
+h1{
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h1 span{
+  font-size: 0.8rem;
+  display: block;
+  text-transform: uppercase;
+  top:-5px;
+  left: 1px;
+}
+
+.mobile h1{
+  font-size: 2.8rem;
+}
+
+h2{
+  font-size: 1.3rem;
+  letter-spacing: 1.5px;
+  line-height: 2rem;
+}
+
+h4{
+  text-transform: uppercase;
+}
+
+h6{
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+p, li{
+  font-size: 1.1rem;
+}
+
+
+.deep {
+  color: #455963;
+}
+
+.neutral {
+  color: #536D79;
+}
+
+.pale {
+  color: #778f9b;
+}
+
+a.deep:hover, a.neutral:hover, a.pale:hover{
+  color: #EC6367;
+}
+
+.background-dark{
+  .deep{
+    color: #ffffff;
+  }
+  .neutral{
+    color: #F4F6F7;
+  }
+  .pale{
+    color: #E7EAEC;
+  }
+
+  a.deep:hover, a.neutral:hover, a.pale:hover{
+    color: #455963;
+  }
+}
+*/
+/* -----------------------------------------------------------
+    BACKGROUD COLOR
+------------------------------------------------------------*/
+.bg-secondary{
+  z-index: -10;
+  background-color: $secondaryColor !important;
+}
+
+
+.bg-primary{
+  z-index: -10;
+  background-color: $primaryColor !important;
+}
+
+
+/* -----------------------------------------------------------
+    BUTTON
+------------------------------------------------------------*/
+.btn-dark {
+  background-color: #E76565 !important;
+  border: none;
+  border-radius: 25px;
+}
+.btn-dark:hover{
+  background-color:#eb5155 !important;
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #8a8a8a;
+}
+
+/* -----------------------------------------------------------
+    MAIN NAV
+------------------------------------------------------------*/
+.main-nav{  
+  min-height: $mainNavHeight;
+  background-color:#EBEEF0 !important;
+  color: #536D79 !important;
+}
+
+/* ##################################################
+SNAP
+#################################################### */
+.scroller {
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+}
+.scroller > header{
+  scroll-snap-align: start;
+}
+
+.scroller > section{
+  z-index: -1;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.about > section{
+  min-height: auto;
+}
+
+/* #################################################
+  PAGE HOME
+################################################### */
+
+.home-full-height{
+  height: calc(100vh - 280px);
+}
+
+//SPLIT SCREEN SLIDER
+
+.split-screen-slider-wraper{
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 280px);
+  overflow: hidden;
+}
+
+.layer{
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 280px);
+  overflow: hidden;
+}
+
+.layer .content-wrap{
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 280px);
+}
+
+.layer .content-body{
+  width:25%;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.layer img{
+  width: 40%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom{
+  background-color:#FFFFFF;
+  z-index: 1;
+}
+.bottom .content-body{
+  top:25%;
+  right: 5%;
+  text-align: right;
+}
+
+.top{
+  background-color:#E76565;
+  z-index: 2;
+  width: 50vw;
+}
+.top .content-body{
+  top:75%;
+  left: 5%;
+}
+
+.handle{
+  position: absolute;
+  height: 100%;
+  display: block;
+  background-color:transparent;
+  width:5px;
+  top:0;
+  left:50%;
+  z-index: 3;
+}
+.skewed .handle{  
+  top:50%;
+  transform: rotate(30deg) translateY(-50%);
+  height: 200%;
+  transform-origin: top;
+}
+.skewed .top{
+  transform: skew(-30deg);
+  margin-left: -1000px;
+  width: calc(52vw + 1000px);
+}
+
+@media(max-width:1500px){  
+  .skewed .top{
+    transform: skew(-30deg);
+    margin-left: -1000px;
+    width: calc(54vw + 1000px);
+  }
+}
+@media(max-width:1300px){  
+  .skewed .top{
+    transform: skew(-30deg);
+    margin-left: -1000px;
+    width: calc(56vw + 1000px);
+  }
+}
+@media(max-width:1150px){  
+  .skewed .top{
+    transform: skew(-30deg);
+    margin-left: -1000px;
+    width: calc(58vw + 1000px);
+  }
+}
+.skewed .top .content-wrap{
+  transform: skew(30deg);
+  margin-left: 1000px;
+}
+
+//SLIPTER ABOUT PAGE
+.about{
+  .split-screen-slider-wraper{
+    height:calc(100vh - 180px);
+  }
+
+  .layer{
+    height: calc(100vh - 180px);
+  }
+
+  .layer .content-wrap{
+    height: calc(100vh - 180px);
+  }
+}
+
+// SPLITER MOBILE 
+.split-screen-slider-wraper.mobile{
+  position: relative;
+  width: 100%;
+  height:30vh;
+  overflow: hidden;
+  background-color: red;
+}
+.mobile{
+  .layer{
+    height: 30vh;
+  }
+  .layer .content-wrap{
+    height: 30vh;
+  }
+  .layer img{
+    width: 60%;
+  }
+  .layer .content-body{
+    width:25%;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+  }
+}
+
+.presentation-projects{
+  background-color: #33495D !important;
+}
+.mobile{
+  .home-cover-height
+  {
+    height: 30vh
+  }
+  
+  .bg-clip-home::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-image: url(../assets/img/face.png);
+  }
+
+  .bg-clip-home::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-image: url(../assets/img/facenb.png);
+    clip-path: polygon(0 0, 40% 0, 57% 100%, 0 100%);
+  }
+}
+
+
+
+/* #################################################
+ABOUT
+#################################################### */
+.about-full-height{
+  height: calc(100vh - 180px);
+}
+
+.bg-clip-about{
+  position: relative;
+  background: linear-gradient(
+    -115deg, /* Ajuste l'angle pour obtenir l'effet désiré */
+    #E76565 0%,  /* Couleur de départ */
+    #E76565 50%, /* Couleur de départ jusqu'au milieu */
+    #F8EDE3 50%, /* Couleur de fin à partir du milieu */
+    #F8EDE3 100% /* Couleur de fin */
+  )
+}
+
+
+.bg-clip-about::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-image: url(../assets/img/face.png);
+}
+/*
+.bg-clip-about::after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-image: url(../assets/img/facenb.png);
+  clip-path: polygon(0 0, 40% 0, 57% 100%, 0 100%);
+}*/
+
+
+/* #################################################
+PROJETS
+#################################################### */
+.full-height{
+  height: 100vh;
+}
+
+.bg-clip{
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../assets/img/edit.png);
+}
+
+.bg-clip-secondary{
+  background-color: $primaryColor;
+  clip-path: polygon(0 0, 40% 0, 57% 100%, 0 100%);
+}
+
+.bg-clip-reversed-secondary{
+  background-color: #E76565;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 40% 100%);
+}
+
+.mobile{
+  .full-height{
+    height: 30vh;
+  }
+  .bg-text{
+    background-color: #E76565;
+  }
+  .bg-text-secondary{
+    background-color:#ffffff;
+  }
+  .bg-clip{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  }
+  .bg-clip-reversed{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .clip2{
+    background-image: url(../assets/img/edit2.jpg);
+  }
+  .clip3{
+    background-image: url(../assets/img/mapmind.jpg);
+  }
+  .clip4{
+    background-image: url(../assets/img/sketch.jpg);
+  }
+}
+
+.clip1{
+  background-image: url(../assets/img/edit.jpg);
+}
+.clip2{
+  background-image: url(../assets/img/edit.jpg);
+}
+.clip3{
+  background-image: url(../assets/img/sketch.jpg);
+}
+.clip4{
+  background-image: url(../assets/img/sketch.jpg);
+}
+
+
+/* #############################################
+TIME LINE
+#############################################*/ 
+.time-line{
+  max-width: 22px;
+  position: relative;
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    transparent calc(50% - 0.81px), 
+    #33495D calc(50% - 0.8px), 
+    #33495D calc(50% + 0.8px), 
+    transparent calc(50% + 0.81px), 
+    transparent 100%); 
+}
+
+.time-line .dot{
+  margin-left: 3px;
+  width: 16px;
+  height: 16px;
+  border:solid #33495D 2px;
+  background:#ffffff;
+  border-radius: 10px;
+}
+
+.background-dark{
+  .time-line{
+    max-width: 22px;
+    position: relative;
+    background: linear-gradient(
+      to right, 
+      transparent 0%, 
+      transparent calc(50% - 0.81px), 
+      #F8EDE3  calc(50% - 0.8px), 
+      #F8EDE3  calc(50% + 0.8px), 
+      transparent calc(50% + 0.81px), 
+      transparent 100%); 
+  }
+  
+  .time-line .dot{
+    margin-left: 3px;
+    width: 16px;
+    height: 16px;
+    border:solid #F8EDE3 2px;
+    background:#33495D;
+    border-radius: 10px;
+  }
+}
+/* #############################################
+SKILLS
+#############################################*/ 
+.progress{
+  --bs-progress-height: 0.8rem;
+}
+.grp-skills {
+  padding-left: 2rem;
+}
+
+.grp-skills li{
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+/*
+.grp-skills li::after {
+  content: "•";
+  font-size: 2rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}*/

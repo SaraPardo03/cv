@@ -1,23 +1,94 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-
+import React, {useState, useEffect, useRef} from 'react';
+import TypingText from './TypingText';
 function MainNav() {
-  return (
-    <Navbar collapseOnSelect expand="md" bg="dark" data-bs-theme="dark" className="bg-body-tertiary main-nav">
-      <Container>
-        <Navbar.Brand href="/" className='brand-name'>Sarah Pardo</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
-          <Nav>
-            <Nav.Link href="/about">à propos</Nav.Link>
-            <Nav.Link href="/projects">projets</Nav.Link>
-            {/*<Nav.Link href="/contact">contact</Nav.Link>*/}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+  const [lastName, setLastName] = useState('Pardo');
+  const [firstName, setFirstName] = useState('Sarah');
+  const [eraseAnimed, setEraseAnimed] = useState(false);
+  const [typingAnimed, setTypingAnimed] = useState(true);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const writingDelay = 200;
+
+  const logoClipRef = useRef(null);
+  const logoClipSpanRef = useRef(null);
+  const mainNavMobile = useRef(null);
+
+  useEffect(() => {
+    if (isMobileNavOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMobileNavOpen]);
+
+  const handleTypingFinish = () => {
+    setTypingAnimed(false);
+    setTimeout(() => {
+      if(logoClipRef.current) {
+        logoClipRef.current.classList.add('shrink');
+      }
+      setTimeout(() => {
+        //setFirstName("");
+        setLastName("P");
+      }, 1400);
+    }, writingDelay * 5);
+      
+  };
+
+  const handleNavButtonClick = () => {
+    const nav = mainNavMobile.current;
+    if (nav) {
+      nav.classList.toggle('show', !isMobileNavOpen);
+      setIsMobileNavOpen(prevState => !prevState);
+    }
+  };
+
+  return (<>
+    <nav id="main-nav" className='sticky top-0 z-10 w-full h-[80px] flex items-center lg:px-[80px] px-[25px] text-black'>
+      <div className='flex-1 nav-logo'>
+        <h3 className='nav-logo-text w-fit relative'>
+          <div className='nav-logo-clip bg-transparent py-[6px]'>
+            <span className='text-nowrap pl-[10px] text-transparent'>
+              <TypingText text={lastName} delay={writingDelay}  key={lastName} isAnimate={typingAnimed}/>
+            </span>
+            <span className='text-nowrap my-[6px] pl-[10px] pr-[10px] text-transparent'>
+              <TypingText text={firstName} wait={writingDelay * (lastName.length + 1)} delay={writingDelay} key={firstName} isAnimate={typingAnimed}/>
+            </span>
+          </div>
+          <div ref={logoClipRef} className='nav-logo-clip py-[6px] absolute top-0 left-0 z-10'>
+            <span className='text-nowrap pl-[10px] text-white'>
+              <TypingText text={lastName} delay={writingDelay}  key={lastName} isAnimate={typingAnimed}/>
+            </span>
+            <span ref={logoClipSpanRef} className=' text-nowrap pl-[10px] pr-[10px] text-white'>
+              <TypingText text={firstName} wait={writingDelay * (lastName.length + 1)} delay={writingDelay} key={firstName} isAnimate={typingAnimed} onFinish={handleTypingFinish}/>
+            </span>
+          </div>
+        </h3>
+      </div>
+      <ul className='lg:flex hidden w-fit flex flex-row space-x-[20px]'>
+        <li><a href='/about'>A propos</a></li>
+        <li><a href='/projects'>projets</a></li>
+      </ul>
+      <div className='w.fit lg:hidden' onClick={handleNavButtonClick}>
+        <i class="icon-open-nav bi bi-bar-chart-fill"></i>  
+      </div>
+    </nav>
+    <nav ref={mainNavMobile} id="main-nav-mobile" className='lg:hidden'>
+      <ul className="flex flex-col p-0">
+        <li className="flex-1 bg-red-700 pl-[25px]"><a href="/about">A propos</a></li>
+        <li className="flex-1 bg-red-600"><a href="/projects">Projets</a></li>
+        <li className="flex-1 bg-red-500"></li>
+        <li className="flex-1 bg-red-400"></li>
+        <li className="flex-1 bg-red-300"></li>
+        <li className="flex-1 bg-red-200"></li>
+        <li className="flex-1 bg-red-100"></li>
+        <li className="flex-1 bg-red-50"></li>
+      </ul>
+    </nav>
+  </>);
 }
 
 export default MainNav;

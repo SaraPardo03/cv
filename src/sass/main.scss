@@ -1,9 +1,30 @@
+
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+// tailwind-variables.scss
+
+/* #########################################################
+VARS
+############################################################ */
+
+$primary:#F9F9F9;
+$secondary: #7FC8F8;
+$accent: #F87575;
+$dark: #534B62;
+$light: #F9F9F9;
+
+.no-scroll {
+  overflow: hidden;
+}
+
 
 /* -----------------------------------------------------------
     FONTS
 ------------------------------------------------------------*/
-/* igtre v Bold */
+/* figtre v Bold */
 @font-face {
   font-family: 'Figtree';
   src: url('../assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
@@ -20,123 +41,101 @@
 
 body{
   margin: 0px;
-}
-
-.font-figtree {
   font-family: "Figtree", "Helvetica Neue";
+  color: $primary;
 }
 
-.about-container{
-  min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    white 0%,
-    white 50%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 1) 100%
-  );
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+span {
+  font-family: "Figtree", "Helvetica Neue";
+  color: $dark;
 }
 
-.about-container h1{
-  color: #333333d0;
-  letter-spacing: -0.04em;
+/* #################################################
+  MAIN NAV 
+################################################### */
+
+#main-nav{
+  background-color: $light;
+  .nav-logo-text{
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  .nav-logo-clip{
+    background-color:$accent;
+    padding-right: 20px;
+    clip-path: polygon(0 0, 100% 0%, 85% 100%, 0% 100%);
+    width: 100%;
+    transition: width 1.5s ease;
+  }
+  .nav-logo-clip.shrink {
+    clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+    padding-right: 30px;
+    width: 35px;
+  }
+
+  .icon-open-nav::before{
+    color: $accent;
+    transform: rotate(270deg);
+    font-size: 25px;
+  }
 }
 
-.about-container p{
-  color: #757575;
+#main-nav-mobile{
+  visibility: hidden;
+  position: fixed;
+  z-index: 200;
+  height: calc(100vh - 80px);
+  width: 100vw;
+  background: #ebeef07c;
+  transition: all 0.8s ease-in-out;
+
+  ul{
+    padding: 0px;
+    width: 0px;
+    height: 100%;
+    background-color: $accent;
+    clip-path: polygon(0 0, 100% 0%, 35% 100%, 0% 100%);
+    transition: all 0.8s ease-in-out;
+
+
+    li{
+      text-wrap: nowrap;
+      
+
+      a{
+        display: block;
+        align-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: 25px;
+        color: $light;
+      }
+    }
+
+    li:hover a{
+      color: $dark;
+    }
+  }
 }
 
-.about-left{
-  background-color: white;
+#main-nav-mobile.show{
+  visibility: visible;
+  ul{
+    padding: 25px;
+    width: 100vw;
+  }
 }
 
-
-.about-center {
-  background: linear-gradient(
-    to bottom right,
-    white 0%,
-    white 50%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-
-.about-right{
-  background-color:rgba(0, 0, 0, 1);
-}
-
-
-/* ##################################################
-EXPERIENCE PAGE 
-###################################################*/ 
-
-.experiences-container{
-  //min-height: 100vh;
-}
-
-.experiences-container span{
-  color: #333333ab;
-}
-
-
-.experiences-container h2{
-  color: #333333d0;
-}
-
-.experiences-container h4{
-  color: #333333d0;
-}
-
-.experiences-container h6{
-  color: #333333ab;
-}
-
-
-.time-line{
-  max-width: 22px;
-  background-color: red;
-  position: relative;
-  background: linear-gradient(
-    to right, 
-    transparent 0%, 
-    transparent calc(50% - 0.81px), 
-    rgb(212, 212, 212) calc(50% - 0.8px), 
-    rgb(212,212,212) calc(50% + 0.8px), 
-    transparent calc(50% + 0.81px), 
-    transparent 100%); 
-}
-
-.time-line .dot{
-  margin-left: 3px;
-  width: 16px;
-  height: 16px;
-  border:solid rgb(212, 212, 212) 2px;
-  background:white;
-  border-radius: 10px;
-}
-
-/* ##################################################
-SKILLS PAGE 
-###################################################*/ 
-.skills-container h2{
-  color: #333333d0;
-}
-
-
-.skills-left{
-  background-color: white;
-}
-
-
-.skills-right{
-  background-color: black;
-}
-
-.skills-container .progress{
-  height: 0.9rem;
-  font-size: 0.75rem;
-}
-
-.progressBarHolder{
-  background-color: #E9ECEF !important;
-}
+/* #################################################
+  HOME PAGE  
+################################################### */
