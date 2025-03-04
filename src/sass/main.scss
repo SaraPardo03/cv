@@ -10,20 +10,56 @@
 VARS
 ############################################################ */
 
+/* color */
 $primary:#F9F9F9;
 $secondary: #7FC8F8;
 $accent: #F87575;
 $dark: #534B62;
+$light-dark: #757575;
 $light: #F9F9F9;
+$dark-light:#D0D0D0;
 
+/* text colors */ 
+.text-primary{
+  color: $primary;
+}
+.text-secondary{
+  color: $secondary;
+}
+.text-accent{
+  color:$accent;
+}
+.text-lighter{
+  color:$light;
+}
+.text-dark-light{
+  color:$dark-light;
+}
+.text-darker{
+  color: $dark;
+}
+.text-light-dark{
+  color:$light-dark;
+}
+
+/* bacground color */ 
+.bg.primary{
+  background-color: $primary;
+}
+.bg-secondary{
+  background-color: $secondary;
+}
+.bg-accent{
+  background-color: $accent;
+}
 .no-scroll {
   overflow: hidden;
 }
 
 
-/* -----------------------------------------------------------
-    FONTS
-------------------------------------------------------------*/
+/* #########################################################
+  FONTS
+############################################################ */
 /* figtre v Bold */
 @font-face {
   font-family: 'Figtree';
@@ -59,15 +95,61 @@ span {
   color: $dark;
 }
 
+/* -----------------------------------------------------------
+    FONTS SIZE
+------------------------------------------------------------*/
+html{
+  font-size: 18px;
+}
+
+h1{
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+h2{
+  font-size: 5rem;
+  font-style: italic;
+  font-weight:bold;
+  line-height: 1;
+}
+@media(max-width:1024px){  
+  h1{
+    font-size: 0.8rem;
+  }
+  h2{
+    font-size: 2.2rem;
+  }
+}
+
+p {
+  font-size: 1.2rem; 
+}
+
 /* #################################################
-  MAIN NAV 
+  COMPONENTS
 ################################################### */
+
+/* Button */ 
+.call-to-action-button{
+  .layer.one{
+    background-color: $light;
+  }
+  .layer.two{
+    background-color: $accent;
+    clip-path: polygon(74% 0, 100% 0, 100% 100%, 49% 100%);
+  }
+  
+}
+
+/* MAIN NAV */
 
 #main-nav{
   background-color: $light;
   .nav-logo-text{
     font-size: 20px;
     text-transform: uppercase;
+    font-style: italic;
   }
 
   .nav-logo-clip{
@@ -137,5 +219,36 @@ span {
 }
 
 /* #################################################
-  HOME PAGE  
+  PAGES 
 ################################################### */
+
+/* Home page */
+#home-who-section-mobile {
+  .split-screen-wraper-mobile{
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    overflow: hidden;
+    .split-screen-layer{
+      .text{
+        height: 25vh;
+        overflow: hidden;
+      }
+      .img{
+        height: 40vh;
+        background-image: url(../assets/img/image-1.png);
+        background-position:bottom;
+        background-repeat: no-repeat;
+        background-size:contain;
+      }
+    }
+    .split-screen-layer.two{
+      background-color:$accent;
+      clip-path: polygon(0 74%, 100% 50%, 100% 100%, 0% 100%);
+      .img{
+        height: 40vh;
+        background-image: url(../assets/img/image-2.png);
+      }
+    }
+  }
+}

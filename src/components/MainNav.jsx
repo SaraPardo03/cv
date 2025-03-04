@@ -47,7 +47,7 @@ function MainNav() {
   };
 
   return (<>
-    <nav id="main-nav" className='sticky top-0 z-10 w-full h-[80px] flex items-center lg:px-[80px] px-[25px] text-black'>
+    <nav id="main-nav" className='z-10 w-full h-[80px] flex items-center lg:px-[80px] px-[25px]'>
       <div className='flex-1 nav-logo'>
         <h3 className='nav-logo-text w-fit relative'>
           <div className='nav-logo-clip bg-transparent py-[6px]'>
@@ -73,7 +73,7 @@ function MainNav() {
         <li><a href='/projects'>projets</a></li>
       </ul>
       <div className='w.fit lg:hidden' onClick={handleNavButtonClick}>
-        <i class="icon-open-nav bi bi-bar-chart-fill"></i>  
+        <i className="icon-open-nav bi bi-bar-chart-fill"></i>  
       </div>
     </nav>
     <nav ref={mainNavMobile} id="main-nav-mobile" className='lg:hidden'>
