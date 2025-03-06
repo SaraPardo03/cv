@@ -8,16 +8,16 @@ import imageFace from '../assets/img/image-1.png';
 import imageFaceNB from '../assets/img/image-2.png';
 
 export function Home_old(){
-  let firstSubTitle = "Développeuse d'applications ergonomiques et efficaces"
-  let secondSubTitle = "Passionnée de design et UI/UX"
+  let firstSubTitle = "Développeuse d'applications ergonomiques et efficaces";
+  let secondSubTitle = "Passionnée de design et UI/UX";
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const wraperRef = useRef(null)
+  const wraperRef = useRef(null);
   const topRef = useRef(null);
   const handleRef = useRef(null);
   let skew = 0;
   let delta = 0;
 
-  if (wraperRef.current ){
+  if (wraperRef.current){
     if(wraperRef.current.className.indexOf("skewed") != -1){
       skew = 1000;
     }
