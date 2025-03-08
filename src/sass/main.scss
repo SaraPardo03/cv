@@ -224,18 +224,20 @@ p {
 
 /* Home page */
 #home-who-section-mobile {
-  .split-screen-wraper-mobile{
-    position: relative;
+  .split-screen-wraper{
     width: 100%;
-    height: 65vh;
-    overflow: hidden;
+    
+    position: relative;
     .split-screen-layer{
+      width: 100%;
+      .layer-wraper{
+        height: 60vh;
+        height: 60svh
+      }
       .text{
-        height: 25vh;
-        overflow: hidden;
+        min-height:140px;
       }
       .img{
-        height: 40vh;
         background-image: url(../assets/img/image-1.png);
         background-position:bottom;
         background-repeat: no-repeat;
@@ -244,12 +246,22 @@ p {
     }
     .split-screen-layer.two{
       background-color:$accent;
-      clip-path: polygon(0 10%, 100% 10%, 100% 100%, 0% 100%);
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
       //clip-path: polygon(0 74%, 100% 50%, 100% 100%, 0% 100%);
       .img{
-        height: 40vh;
         background-image: url(../assets/img/image-2.png);
       }
     }
+  }
+}
+
+@media (max-width: 465px) {
+  #home-who-section-mobile .split-screen-wraper .split-screen-layer .text {
+    min-height: 225px;
+  }
+}
+@media (max-width: 885px) {
+  #home-who-section-mobile .split-screen-wraper .split-screen-layer .text {
+    min-height: 195px;
   }
 }
