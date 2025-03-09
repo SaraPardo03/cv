@@ -246,7 +246,7 @@ p {
     }
     .split-screen-layer.two{
       background-color:$accent;
-      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+      //clip-path: polygon(0 26%, 100% 76%, 100% 100%, 0% 100%);
       //clip-path: polygon(0 74%, 100% 50%, 100% 100%, 0% 100%);
       .img{
         background-image: url(../assets/img/image-2.png);
