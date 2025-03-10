@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import TypingText from './TypingText';
-function MainNav() {
+function MainNav(isVisible) {
+  const navBar = useRef(null);
   const [lastName, setLastName] = useState('Pardo');
   const [firstName, setFirstName] = useState('Sarah');
   const [eraseAnimed, setEraseAnimed] = useState(false);
@@ -13,6 +14,16 @@ function MainNav() {
   const mainNavMobile = useRef(null);
 
   useEffect(() => {
+    if(navBar){
+      if(isVisible){
+        if (isVisible?.isVisible) {
+          navBar.current.classList.add("isvisible");
+        } else {
+          navBar.current.classList.remove("isvisible");
+        }
+      }
+    }
+
     if (isMobileNavOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -22,7 +33,7 @@ function MainNav() {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [isMobileNavOpen]);
+  }, [isMobileNavOpen, isVisible]);
 
   const handleTypingFinish = () => {
     setTypingAnimed(false);
@@ -47,7 +58,7 @@ function MainNav() {
   };
 
   return (<>
-    <nav id="main-nav" className='z-10 w-full h-[80px] flex items-center lg:px-[80px] px-[25px]'>
+    <nav ref={navBar} id="main-nav" className='fixed top-0 right-0 left-0 z-10 w-full h-[80px] flex items-center lg:px-[80px] px-[25px]'>
       <div className='flex-1 nav-logo'>
         <h3 className='nav-logo-text w-fit relative'>
           <div className='nav-logo-clip bg-transparent py-[6px]'>

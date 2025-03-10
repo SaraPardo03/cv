@@ -35,7 +35,7 @@ const TypingText = ({ text, delay, wait = 0, onFinish, isAnimate = true, erase =
   useEffect(() => {
     if (isAnimate){
       if (isWaiting) {
-        console.log(`wait : ${text} : ${wait}`);
+        //console.log(`wait : ${text} : ${wait}`);
         const waiter = setTimeout(() => {
           setIsWaiting(false);
         }, wait);

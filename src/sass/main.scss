@@ -143,9 +143,19 @@ p {
 }
 
 /* MAIN NAV */
-
+#main-nav.isvisible{
+  opacity: 1;
+  visibility: visible;
+}
 #main-nav{
   background-color: $light;
+  opacity: 0; 
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  .isvisible {
+    opacity: 1;
+    visibility: visible;
+  }
   .nav-logo-text{
     font-size: 20px;
     text-transform: uppercase;
@@ -229,10 +239,11 @@ p {
     
     position: relative;
     .split-screen-layer{
+      background-color: $primary;
       width: 100%;
       .layer-wraper{
         height: 60vh;
-        height: 60svh
+        height: 100svh;
       }
       .text{
         min-height:140px;
@@ -246,8 +257,8 @@ p {
     }
     .split-screen-layer.two{
       background-color:$accent;
-      //clip-path: polygon(0 26%, 100% 76%, 100% 100%, 0% 100%);
-      //clip-path: polygon(0 74%, 100% 50%, 100% 100%, 0% 100%);
+      position: absolute;
+      top:0px;
       .img{
         background-image: url(../assets/img/image-2.png);
       }

@@ -1,16 +1,17 @@
-  import React, { useEffect, useRef, useState } from 'react';
+  import React, { useEffect, useRef, useState} from 'react';
+  import SplitLayerMobile from '../components/SplitLayerMobile';
   import MainNav from '../components/MainNav';
-  import CallToActionButton from '../components/CallToActionButton';
-  import { use } from 'react';
 
   export function Home() {
     const [isAtTop, setIsAtTop] = useState(false);
     const [scrollAllowed, setScrollAllowed] = useState(false); 
     const [touches, setTouches] = useState(0);
+    const layerOne = useRef(null);
     const layerTwo = useRef(null);
     const [diagonalPoints, setDiagonalPoints] = useState([
-      { value: 70, min: -16, max: 100 },
       { value: 86, min: 0, max: 116 },
+      { value: 70, min: -16, max: 100 },
+      
     ]);
 
       // Function to update diagonal points values  while ensuring it stays within its range
@@ -124,6 +125,7 @@
 
     return (
       <main>
+        <MainNav isVisible={scrollAllowed}/>
         <section id="home-who-section" className="lg:flex hidden">
           <div className="split-screen-wraper px-[80px] pt-[80px]">
             <h1 className="text-light-dark">{subTitleFront}</h1>
@@ -131,35 +133,13 @@
             <p className="text-darker">{textFront}</p>
           </div>
         </section>
-
         <section id="home-who-section-mobile" className="lg:hidden">
           <div className="split-screen-wraper">
-            <div className="split-screen-layer one">
-              <div className="layer-wraper flex flex-col">
-                <div className="text flex-none px-[10px]">
-                  <h1 className="text-light-dark pt-[20px]">{subTitleFront}</h1>
-                  <h2 className="text-darker pb-[20px]">{titleFront}</h2>
-                  <p className="text-darker">{textFrontMobile}</p>
-                </div>
-                <div className="img flex-1"></div>
-              </div>
-            </div>
-
-            <div ref={layerTwo} className="split-screen-layer two absolute top-0">
-              <div className="layer-wraper flex flex-col">
-                <div className="text flex-none px-[10px]">
-                  <h1 className="text-dark-light pt-[20px]">{subTitleBack}</h1>
-                  <h2 className="text-lighter pb-[20px]">{titleBack}</h2>
-                  <p className="text-lighter">{textBackMobile}</p>
-                </div>
-                <div className="img flex-1"></div>
-              </div>
-            </div>
+            <SplitLayerMobile ref={layerOne} subTitle={subTitleBack} title={titleBack} text={textBackMobile} layerPosition="one"/>
+            <SplitLayerMobile ref={layerTwo} subTitle={subTitleFront} title={titleFront} text={textFrontMobile} layerPosition="two"/>
           </div>
         </section>
-
         <section className="h-[100vh] bg-blue-300"> toto</section>
-
         <section className="h-[100vh] bg-green-300"> green</section>
       </main>
     );
