@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import TypingText from './TypingText';
-function MainNav(isVisible) {
+function MainNav({isVisible}) {
   const navBar = useRef(null);
   const [lastName, setLastName] = useState('Pardo');
   const [firstName, setFirstName] = useState('Sarah');
@@ -15,12 +15,10 @@ function MainNav(isVisible) {
 
   useEffect(() => {
     if(navBar){
-      if(isVisible){
-        if (isVisible?.isVisible) {
-          navBar.current.classList.add("isvisible");
-        } else {
-          navBar.current.classList.remove("isvisible");
-        }
+      if (isVisible) {
+        navBar.current.classList.add("isvisible");
+      } else {
+        navBar.current.classList.remove("isvisible");
       }
     }
 

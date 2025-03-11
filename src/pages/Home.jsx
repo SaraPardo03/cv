@@ -3,18 +3,20 @@
   import MainNav from '../components/MainNav';
 
   export function Home() {
+    const [mainNavVisible, setMainNavVisible] = useState(false);
     const [isAtTop, setIsAtTop] = useState(false);
     const [scrollAllowed, setScrollAllowed] = useState(false); 
     const [touches, setTouches] = useState(0);
     const layerOne = useRef(null);
     const layerTwo = useRef(null);
+    const sectionProjects = useRef(null);
     const [diagonalPoints, setDiagonalPoints] = useState([
       { value: 86, min: 0, max: 116 },
       { value: 70, min: -16, max: 100 },
       
     ]);
 
-      // Function to update diagonal points values  while ensuring it stays within its range
+    // Function to update diagonal (split screen) points values while ensuring it stays within its range
     const updateDiagonalPoints = (index, newValue) => {
       setDiagonalPoints((prev) =>
         prev.map((item, i) => {
@@ -38,8 +40,6 @@
     const textBack = "Depuis 2008, je crée des applications ergonomiques en transformant des problèmes complexes en solutions simples avec un code propre et performant.";
     const textBackMobile = "Depuis 2008, je crée des applications intuitives avec un code efficace.";
 
-
-
     // Navigate to About page on button click
     const handleClickGoToAbout = e => {
       navigate(`/about`);
@@ -53,10 +53,22 @@
         document.body.style.overflow = 'auto';
       }
       
+      //Clip for the split screen
       if (layerTwo.current) {
         layerTwo.current.style.clipPath = `polygon(0 ${diagonalPoints[0].value}%, 100% ${diagonalPoints[1].value}%, 100% 100%, 0% 100%)`;
       }
+
       const handleScroll = (e) => {
+        //Show main nav when the projects section is on top of the screen 
+        if(sectionProjects){
+          if(window.scrollY > (sectionProjects.current.offsetTop - 80)){
+            setMainNavVisible(true);
+          }else{
+            setMainNavVisible(false);
+          }
+        }
+
+        // Determine the scroll/touches force
         const scrollYForce = e.deltaY;
         let toucheForce = null;
         if (e.touches) {
@@ -65,30 +77,34 @@
             setTouches(e.touches[0].screenY);
           }
         }
-        if(window.scrollY === 0 && !isAtTop){
-          setIsAtTop(true);
+
+        // Determine the scroll/touches direction
+        let scrollDirection = null;
+        if(scrollYForce < 0 || toucheForce < 0){
+          scrollDirection = "down";
         }
 
-        if(window.scrollY !== 0 && isAtTop){
+        if(scrollYForce > 0 || toucheForce > 0){
+          scrollDirection = "up";
+        }
+
+        //If we are in the top of the page
+        if(window.scrollY === 0){
+          setIsAtTop(true);
+        }else{
           setIsAtTop(false);
         }
 
-        if(isAtTop && diagonalPoints[0].value === diagonalPoints[0].min){
+
+        if(diagonalPoints[1].value === diagonalPoints[1].min){
           setScrollAllowed(true);
         }
-
-        if(isAtTop && diagonalPoints[0].value === diagonalPoints[0].min){
-            if(scrollYForce < 0){
-              setScrollAllowed(false);
-            }
-
-            if(toucheForce && toucheForce < 0){
-              setScrollAllowed(false);
-            }
-        }
+        
+        if(isAtTop && scrollDirection === "down" && diagonalPoints[1].value === diagonalPoints[1].min){
+          setScrollAllowed(false);
+        }        
 
         if(!scrollAllowed){
-          e.preventDefault();
           // Handling wheel scroll events  to calculate scrolling force
           if (scrollYForce) {
             if (layerTwo.current) { 
@@ -111,7 +127,7 @@
             }
         }
       };
-
+      
       // Add event listeners for wheel and touchmove events
       window.addEventListener("wheel", handleScroll, { passive: false });
       window.addEventListener("touchmove", handleScroll, { passive: false });
@@ -121,11 +137,11 @@
         window.removeEventListener("wheel", handleScroll);
         window.removeEventListener("touchmove", handleScroll);
       };
-    }, [diagonalPoints, touches, scrollAllowed, isAtTop]);
+    }, [diagonalPoints, touches, scrollAllowed, isAtTop, mainNavVisible]);
 
     return (
       <main>
-        <MainNav isVisible={scrollAllowed}/>
+        <MainNav isVisible={mainNavVisible}/>
         <section id="home-who-section" className="lg:flex hidden">
           <div className="split-screen-wraper px-[80px] pt-[80px]">
             <h1 className="text-light-dark">{subTitleFront}</h1>
@@ -135,11 +151,15 @@
         </section>
         <section id="home-who-section-mobile" className="lg:hidden">
           <div className="split-screen-wraper">
-            <SplitLayerMobile ref={layerOne} subTitle={subTitleBack} title={titleBack} text={textBackMobile} layerPosition="one"/>
-            <SplitLayerMobile ref={layerTwo} subTitle={subTitleFront} title={titleFront} text={textFrontMobile} layerPosition="two"/>
+            <SplitLayerMobile ref={layerOne} subTitle={subTitleBack} title={titleBack} text={textBackMobile} layerPosition="one" color="color-text-dark"/>
+            <SplitLayerMobile ref={layerTwo} subTitle={subTitleFront} title={titleFront} text={textFrontMobile} layerPosition="two" color="color-text-light"/>
           </div>
         </section>
-        <section className="h-[100vh] bg-blue-300"> toto</section>
+        <section ref={sectionProjects} className="h-[100vh] bg-blue-300">
+          <p>toto</p>
+
+
+        </section>
         <section className="h-[100vh] bg-green-300"> green</section>
       </main>
     );

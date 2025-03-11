@@ -9,37 +9,39 @@
 /* #########################################################
 VARS
 ############################################################ */
-
+$main-nav-height:80px;
 /* color */
 $primary:#F9F9F9;
 $secondary: #7FC8F8;
 $accent: #F87575;
-$dark: #534B62;
-$light-dark: #757575;
-$light: #F9F9F9;
-$dark-light:#D0D0D0;
+
+$dark-deep: #534B62;
+$dark-neutral : #696079;
+$dark-pale: #757575;
+
+$light-deep: #F9F9F9;
+$light-neutral : #F4F4F4;
+$light-pale: #EFEFEF;
 
 /* text colors */ 
-.text-primary{
-  color: $primary;
+.color-text-light{
+  color:$light-neutral;
+  .deep {
+    color:$light-deep;
+  }  
+  .pale {
+    color:$light-pale;
+  }
 }
-.text-secondary{
-  color: $secondary;
-}
-.text-accent{
-  color:$accent;
-}
-.text-lighter{
-  color:$light;
-}
-.text-dark-light{
-  color:$dark-light;
-}
-.text-darker{
-  color: $dark;
-}
-.text-light-dark{
-  color:$light-dark;
+
+.color-text-dark{
+  color: $dark-neutral;
+  .deep {
+    color: $dark-deep;
+  }  
+  .pale {
+    color:$dark-pale;
+  }
 }
 
 /* bacground color */ 
@@ -78,7 +80,7 @@ $dark-light:#D0D0D0;
 body{
   margin: 0px;
   font-family: "Figtree", "Helvetica Neue";
-  color: $primary;
+  color: $dark-neutral;
 }
 
 h1,
@@ -92,7 +94,6 @@ li,
 a,
 span {
   font-family: "Figtree", "Helvetica Neue";
-  color: $dark;
 }
 
 /* -----------------------------------------------------------
@@ -133,7 +134,7 @@ p {
 /* Button */ 
 .call-to-action-button{
   .layer.one{
-    background-color: $light;
+    background-color: $primary;
   }
   .layer.two{
     background-color: $accent;
@@ -148,10 +149,10 @@ p {
   visibility: visible;
 }
 #main-nav{
-  background-color: $light;
+  background-color: $primary;
   opacity: 0; 
   visibility: hidden;
-  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
   .isvisible {
     opacity: 1;
     visibility: visible;
@@ -186,7 +187,8 @@ p {
   visibility: hidden;
   position: fixed;
   z-index: 200;
-  height: calc(100vh - 80px);
+  margin-top: $main-nav-height;
+  height: calc(100vh - $main-nav-height);
   width: 100vw;
   background: #ebeef07c;
   transition: all 0.8s ease-in-out;
@@ -198,24 +200,20 @@ p {
     background-color: $accent;
     clip-path: polygon(0 0, 100% 0%, 35% 100%, 0% 100%);
     transition: all 0.8s ease-in-out;
-
-
     li{
       text-wrap: nowrap;
-      
-
       a{
         display: block;
         align-content: center;
         width: 100%;
         height: 100%;
         font-size: 25px;
-        color: $light;
+        color: $light-deep;
       }
     }
 
     li:hover a{
-      color: $dark;
+      color: $dark-deep ;
     }
   }
 }
@@ -242,8 +240,8 @@ p {
       background-color: $primary;
       width: 100%;
       .layer-wraper{
-        height: 60vh;
-        height: 100svh;
+        height: 80vh;
+        height: 80svh;
       }
       .text{
         min-height:140px;
