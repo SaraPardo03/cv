@@ -2,6 +2,11 @@ import React, { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SplitLayerMobile = forwardRef(({ subTitle, title, text, layerPosition , color}, ref) => {
+  const navigate = useNavigate();
+  // Navigate to About page on button click
+  const handleClickGoToAbout = e => {
+    navigate(`/about`);
+  };
   return (
     <div ref={ref} className={`split-screen-layer ${layerPosition} ${color}`}>
       <div className="layer-wraper relative flex flex-col">
@@ -32,7 +37,7 @@ const SplitLayerMobile = forwardRef(({ subTitle, title, text, layerPosition , co
             </div>
             <div className='flex-1 '></div>
             <div className=''>
-              <button className="px-2 py-1">En savoir plus</button>
+              <button onClick={handleClickGoToAbout} className="px-[20px] py-[10px]">En savoir plus</button>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
   import React, { useEffect, useRef, useState} from 'react';
   import SplitLayerMobile from '../components/SplitLayerMobile';
   import MainNav from '../components/MainNav';
+  import SectionCurrentProjects from '../components/SectionCurrentProjects';
 
   export function Home() {
     const [mainNavVisible, setMainNavVisible] = useState(false);
@@ -40,10 +41,7 @@
     const textBack = "Depuis 2008, je crée des applications ergonomiques en transformant des problèmes complexes en solutions simples avec un code propre et performant.";
     const textBackMobile = "Depuis 2008, je crée des applications intuitives avec un code efficace.";
 
-    // Navigate to About page on button click
-    const handleClickGoToAbout = e => {
-      navigate(`/about`);
-    };
+    
 
     useEffect(() => {
       // Disable body scroll behavior to enhance custom scrolling
@@ -60,12 +58,10 @@
 
       const handleScroll = (e) => {
         //Show main nav when the projects section is on top of the screen 
-        if(sectionProjects){
-          if(window.scrollY > (sectionProjects.current.offsetTop - 80)){
-            setMainNavVisible(true);
-          }else{
-            setMainNavVisible(false);
-          }
+        if(window.scrollY > (30)){
+          setMainNavVisible(true);
+        }else{
+          setMainNavVisible(false);
         }
 
         // Determine the scroll/touches force
@@ -155,12 +151,7 @@
             <SplitLayerMobile ref={layerTwo} subTitle={subTitleFront} title={titleFront} text={textFrontMobile} layerPosition="two" color="color-text-light"/>
           </div>
         </section>
-        <section ref={sectionProjects} className="h-[100vh] bg-blue-300">
-          <p>toto</p>
-
-
-        </section>
-        <section className="h-[100vh] bg-green-300"> green</section>
+        <SectionCurrentProjects/>
       </main>
     );
   }

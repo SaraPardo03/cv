@@ -12,7 +12,7 @@ VARS
 $main-nav-height:80px;
 /* color */
 $primary:#F9F9F9;
-$secondary: #7FC8F8;
+$secondary: #08415C;
 $accent: #F87575;
 
 $dark-deep: #534B62;
@@ -33,7 +33,6 @@ $light-pale: #EFEFEF;
     color:$light-pale;
   }
 }
-
 .color-text-dark{
   color: $dark-neutral;
   .deep {
@@ -42,6 +41,9 @@ $light-pale: #EFEFEF;
   .pale {
     color:$dark-pale;
   }
+}
+.color-text-accent{
+  color:$accent;
 }
 
 /* bacground color */ 
@@ -253,6 +255,41 @@ p {
         background-size:contain;
       }
     }
+    .split-screen-layer.color-text-light{
+      button{
+        background-color:$primary;
+        color: $dark-deep;
+        transition: all 0.3s ease-in;
+      }
+      button:hover{
+        background-color: $secondary;
+        color: $light-deep;
+      }
+      i{
+        color: $primary;
+        transition: all 0.3s ease-in-out;
+      }
+      i:hover{
+        color: $secondary;
+      }
+    }
+    .split-screen-layer.color-text-dark{
+      button{
+        background-color: $accent;
+        color: $light-deep;
+        transition: all 0.3s ease-in-out;
+      }
+      button:hover{
+        background-color: $secondary;
+      }
+      i{
+        color: $accent;
+        transition: all 0.3s ease-in-out;
+      }
+      i:hover{
+        color: $secondary;
+      }
+    }
     .split-screen-layer.two{
       background-color:$accent;
       position: absolute;
@@ -260,6 +297,31 @@ p {
       .img{
         background-image: url(../assets/img/image-2.png);
       }
+    }
+  }
+}
+
+#section-curent-projects{
+  position: relative;
+  .layer{
+    height: 100vh;
+    height: 100svh;
+    width: 100%;
+  }
+  .layer.two{
+    background-image: url(../assets/img/edit3.png);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    clip-path: polygon(0px 50%, 100% 40%, 100% 100%, 0% 100%);
+    position: absolute;
+    top:0px;
+    height: 100vh;
+    .img{
+      background-image: url(../assets/img/edit.jpg);
+      background-position:bottom;
+      background-repeat: no-repeat;
+      background-size:contain;
     }
   }
 }
