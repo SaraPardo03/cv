@@ -1,6 +1,7 @@
   import React, { useEffect, useRef, useState} from 'react';
-  import SplitLayerMobile from '../components/SplitLayerMobile';
   import MainNav from '../components/MainNav';
+  import SplitLayer from '../components/SplitLayer';
+  import SplitLayerMobile from '../components/SplitLayerMobile';
   import SectionCurrentProjects from '../components/SectionCurrentProjects';
 
   export function Home() {
@@ -10,7 +11,6 @@
     const [touches, setTouches] = useState(0);
     const layerOne = useRef(null);
     const layerTwo = useRef(null);
-    const sectionProjects = useRef(null);
     const [diagonalPoints, setDiagonalPoints] = useState([
       { value: 86, min: 0, max: 116 },
       { value: 70, min: -16, max: 100 },
@@ -43,14 +43,7 @@
 
     
 
-    useEffect(() => {
-      // Disable body scroll behavior to enhance custom scrolling
-      if (!scrollAllowed) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'auto';
-      }
-      
+    useEffect(() => {      
       //Clip for the split screen
       if (layerTwo.current) {
         layerTwo.current.style.clipPath = `polygon(0 ${diagonalPoints[0].value}%, 100% ${diagonalPoints[1].value}%, 100% 100%, 0% 100%)`;
@@ -100,7 +93,11 @@
           setScrollAllowed(false);
         }        
 
+        setScrollAllowed(true);
         if(!scrollAllowed){
+          // Disable body scroll behavior to enhance custom scrolling
+          e.preventDefault();
+
           // Handling wheel scroll events  to calculate scrolling force
           if (scrollYForce) {
             if (layerTwo.current) { 
@@ -138,11 +135,10 @@
     return (
       <main>
         <MainNav isVisible={mainNavVisible}/>
-        <section id="home-who-section" className="lg:flex hidden">
-          <div className="split-screen-wraper px-[80px] pt-[80px]">
-            <h1 className="text-light-dark">{subTitleFront}</h1>
-            <h2 className="text-darker pb-[40px]">{titleFront}</h2>
-            <p className="text-darker">{textFront}</p>
+        <section id="home-who-section" className="hidden lg:block">
+          <div className="split-screen-wraper">
+            <SplitLayer  subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="one" color="color-text-dark"/>
+            <SplitLayer subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="two" color="color-text-light"/>
           </div>
         </section>
         <section id="home-who-section-mobile" className="lg:hidden">

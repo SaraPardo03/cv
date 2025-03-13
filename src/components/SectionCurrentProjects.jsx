@@ -12,8 +12,22 @@ function SectionCurrentProjects() {
   const handleClickGoToProjects = e =>{
     navigate(`/projects`);
   }
-  return (
-  <section id="section-curent-projects" className="bg-secondary color-text-light">
+  return (<>
+  <section id="section-curent-projects" className="hidden lg:flex flex-row bg-secondary color-text-light">
+    <button onClick={handleClickGoToProjects} className="px-[40px] py-[10px]">En savoir plus sur Ariane</button>
+    <div className="text-box flex-1">
+      <div className="px-[80px]">
+        <h1 className="pale pt-[40px]">{subTitle} <span className="color-text-accent">{subTitleColored}</span></h1>
+        <h2 className="deep pb-[40px]">{title}</h2>
+        <p className="pb-[40px]">{resume}</p>
+      </div>
+    </div>
+    <div className="img-box flex-1 relative">
+      <div className="layer">
+      </div>
+    </div>
+  </section>
+    <section id="section-curent-projects-mobile" className="lg:hidden bg-secondary color-text-light">
       <div className="px-[25px]">
         <h1 className="pale pt-[20px]">{subTitle} <span className="color-text-accent">{subTitleColored}</span></h1>
         <h2 className="deep pb-[20px]">{title}</h2>
@@ -25,6 +39,7 @@ function SectionCurrentProjects() {
         </div>
       </div>
     </section>
+  </>
   );
 }
 

@@ -84,6 +84,7 @@ $light-pale: #EFEFEF;
 }
 
 body{
+
   margin: 0px;
   font-family: "Figtree", "Helvetica Neue";
   color: $dark-neutral;
@@ -115,7 +116,7 @@ h1{
   line-height: 1;
 }
 h2{
-  font-size: 5rem;
+  font-size: 3rem;
   font-style: italic;
   font-weight:bold;
   line-height: 1;
@@ -250,7 +251,6 @@ button.secondary:hover{
 #home-who-section-mobile {
   .split-screen-wraper{
     width: 100%;
-    
     position: relative;
     .split-screen-layer{
       background-color: $primary;
@@ -326,8 +326,37 @@ button.secondary:hover{
   }
 }
 
+#home-who-section {
+  .split-screen-wraper{
+    background-color: red;
+    position: relative;
+    .split-screen-layer{
+      width: 100%;
+      background-color: $primary;
+      height: calc(100vh - $main-nav-height);
+      height: calc(100svh - 60px);
+      .img{
+        background-image: url(../assets/img/image-1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 25vw;
+      }
+    }
+    .split-screen-layer.two{
+      clip-path: polygon(0 0, 55% 0%, 45% 100%, 0 100%);
+      background-color: $accent;
+      position: absolute;
+      top:0;
+      left:0;
+      .img{
+        background-image: url(../assets/img/image-2.png);
+      }
+    }
+    
+  }
+}
 
-#section-curent-projects{
+#section-curent-projects-mobile{
   position: relative;
   .layer{
     width: 100%;
@@ -349,6 +378,33 @@ button.secondary:hover{
     .layer.two{
       background-image: url(../assets/img/editTab.jpg);
     }
+  }
+}
+
+#section-curent-projects{
+  position: relative;
+  .text-box{
+    height: calc(100vh - $main-nav-height);
+    height: calc(100svh - $main-nav-height);
+  }
+  .layer{
+    width: 100%;
+    height: calc(100vh - $main-nav-height);
+    height: calc(100svh - $main-nav-height);
+    background-image: url(../assets/img/editTab.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    clip-path:polygon(0% 0, 100% 0, 100% 100%, 10% 100%);
+    position: absolute;
+    top:0px;
+  }
+  button{
+    position: absolute;
+    z-index: 10;
+    top:calc(50vh + $main-nav-height);
+    top:calc(50svh + $main-nav-height);
+    left:calc(42vw);
+    left:calc(42svw);  
   }
 }
 
