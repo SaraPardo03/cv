@@ -37,7 +37,7 @@ const SplitLayerMobile = forwardRef(({ subTitle, title, text, layerPosition , co
             </div>
             <div className='flex-1 '></div>
             <div className=''>
-              <button onClick={handleClickGoToAbout} className="px-[20px] py-[10px]">En savoir plus</button>
+              <button onClick={handleClickGoToAbout} className="px-[20px] py-[10px]">à propos</button>
             </div>
           </div>
         </div>
