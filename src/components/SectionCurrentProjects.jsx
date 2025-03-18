@@ -27,18 +27,18 @@ function SectionCurrentProjects() {
       </div>
     </div>
   </section>
-    <section id="section-curent-projects-mobile" className="lg:hidden bg-secondary color-text-light">
-      <div className="px-[25px]">
-        <h1 className="pale pt-[20px]">{subTitle} <span className="color-text-accent">{subTitleColored}</span></h1>
-        <h2 className="deep pb-[20px]">{title}</h2>
-        <p className="pb-[20px]">{resume}</p>
-        <button onClick={handleClickGoToProjects} className="mb-[20px] px-[20px] py-[10px]">En savoir plus sur Ariane</button>
+  <section id="section-curent-projects-mobile" className="lg:hidden bg-secondary color-text-light">
+    <div className="px-[25px]">
+      <h1 className="pale pt-[20px]">{subTitle} <span className="color-text-accent">{subTitleColored}</span></h1>
+      <h2 className="deep pb-[20px]">{title}</h2>
+      <p className="pb-[20px]">{resume}</p>
+      <button onClick={handleClickGoToProjects} className="mb-[20px] px-[20px] py-[10px]">En savoir plus sur Ariane</button>
+    </div>
+    <div className="min-h-[10vh] relative">
+      <div className="layer two">
       </div>
-      <div className="h-[50vh] relative">
-        <div className="layer two">
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
   </>
   );
 }

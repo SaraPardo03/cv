@@ -1,7 +1,7 @@
   import React, { useEffect, useRef, useState} from 'react';
   import MainNav from '../components/MainNav';
-  import SplitLayer from '../components/SplitLayer';
   import SplitLayerMobile from '../components/SplitLayerMobile';
+  import HomeWhoSection from '../components/HomeWhoSection';
   import SectionCurrentProjects from '../components/SectionCurrentProjects';
 
   export function Home() {
@@ -42,7 +42,7 @@
     const textBackMobile = "Depuis 2008, je crée des applications intuitives avec un code efficace.";
 
     
-
+/*
     useEffect(() => {      
       //Clip for the split screen
       if (layerTwo.current) {
@@ -51,14 +51,14 @@
 
       const handleScroll = (e) => {
         //Show main nav when the projects section is on top of the screen 
-        if(window.scrollY > (30)){
+        if(window.scrollY > 30){
           setMainNavVisible(true);
         }else{
           setMainNavVisible(false);
         }
 
         // Determine the scroll/touches force
-        const scrollYForce = e.deltaY;
+        let scrollYForce = e.deltaY;
         let toucheForce = null;
         if (e.touches) {
           if (e.touches[0]) {
@@ -71,10 +71,23 @@
         let scrollDirection = null;
         if(scrollYForce < 0 || toucheForce < 0){
           scrollDirection = "down";
+
         }
 
         if(scrollYForce > 0 || toucheForce > 0){
           scrollDirection = "up";
+        }
+
+        if(scrollDirection === "down"){
+          scrollYForce = -20;
+          if(toucheForce != null){
+            toucheForce = -4;
+          }
+        }else{
+          scrollYForce = 20;
+          if(toucheForce != null){
+            toucheForce = 4;
+          }
         }
 
         //If we are in the top of the page
@@ -93,7 +106,7 @@
           setScrollAllowed(false);
         }        
 
-        setScrollAllowed(true);
+        //setScrollAllowed(true);
         if(!scrollAllowed){
           // Disable body scroll behavior to enhance custom scrolling
           e.preventDefault();
@@ -103,18 +116,17 @@
             if (layerTwo.current) { 
               updateDiagonalPoints(0, diagonalPoints[0].value - scrollYForce);
               updateDiagonalPoints(1, diagonalPoints[1].value - scrollYForce);
+              //console.log("scrollYForce mobile", scrollYForce);
               layerTwo.current.style.clipPath = `polygon(0 ${diagonalPoints[0].value}%, 100% ${diagonalPoints[1].value}%, 100% 100%, 0% 100%)`;
             }
           }
           // Handling touch events to calculate scrolling force
             if(toucheForce != null){
               if (layerTwo.current) { 
-                if(toucheForce < 50 && toucheForce > -50 ){
-                  updateDiagonalPoints(0, diagonalPoints[0].value - toucheForce);
-                  updateDiagonalPoints(1, diagonalPoints[1].value - toucheForce);
-                  layerTwo.current.style.clipPath = `polygon(0 ${diagonalPoints[0].value}%, 100% ${diagonalPoints[1].value}%, 100% 100%, 0% 100%)`;
-                }
-                
+                updateDiagonalPoints(0, diagonalPoints[0].value - toucheForce);
+                updateDiagonalPoints(1, diagonalPoints[1].value - toucheForce);
+                //console.log("toucheForce mobile", toucheForce);
+                layerTwo.current.style.clipPath = `polygon(0 ${diagonalPoints[0].value}%, 100% ${diagonalPoints[1].value}%, 100% 100%, 0% 100%)`;                
               }
               setTouches(e.touches[0].screenY);
             }
@@ -131,16 +143,17 @@
         window.removeEventListener("touchmove", handleScroll);
       };
     }, [diagonalPoints, touches, scrollAllowed, isAtTop, mainNavVisible]);
-
+    */
     return (
       <main>
         <MainNav isVisible={mainNavVisible}/>
-        <section id="home-who-section" className="hidden lg:block">
+        <HomeWhoSection subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack}/>
+        {/*<section id="home-who-section" className="hidden lg:block">
           <div className="split-screen-wraper">
             <SplitLayer  subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="one" color="color-text-dark"/>
             <SplitLayer subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="two" color="color-text-light"/>
           </div>
-        </section>
+        </section>*/}
         <section id="home-who-section-mobile" className="lg:hidden">
           <div className="split-screen-wraper">
             <SplitLayerMobile ref={layerOne} subTitle={subTitleBack} title={titleBack} text={textBackMobile} layerPosition="one" color="color-text-dark"/>
