@@ -1,11 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react';
 import TypingText from './TypingText';
-function MainNav({isVisible}) {
+function MainNav({}) {
   const navBar = useRef(null);
   const [lastName, setLastName] = useState('Pardo');
   const [firstName, setFirstName] = useState('Sarah');
   const [eraseAnimed, setEraseAnimed] = useState(false);
   const [typingAnimed, setTypingAnimed] = useState(true);
+  const [isVisible, setIsVisibel] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const writingDelay = 200;
 
@@ -14,6 +15,14 @@ function MainNav({isVisible}) {
   const mainNavMobile = useRef(null);
 
   useEffect(() => {
+    const handleScroll = (e) => {
+      //Show main nav when the projects section is on top of the screen 
+      if(window.scrollY > 80){
+        setIsVisibel(true);
+      }else{
+        setIsVisibel(false);
+      }  
+    };    
     if(navBar){
       if (isVisible) {
         navBar.current.classList.add("isvisible");
@@ -28,8 +37,15 @@ function MainNav({isVisible}) {
       document.body.style.overflow = 'auto';
     }
 
+    // Add event listeners for wheel and touchmove events
+    window.addEventListener("wheel", handleScroll, { passive: false });
+    window.addEventListener("touchmove", handleScroll, { passive: false });
+
+    // Cleanup the event listeners when the component is unmounted
     return () => {
       document.body.style.overflow = 'auto';
+      window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("touchmove", handleScroll);
     };
   }, [isMobileNavOpen, isVisible]);
 

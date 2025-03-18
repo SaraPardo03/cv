@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState} from 'react';
-import SplitLayer from "./SplitLayer";
+import SplitLayerMobile from './SplitLayerMobile';
 
-function HomeWhoSection({subTitleFront, titleFront, textFront, subTitle, title, text}){
+function HomeWhoSectionMobile({subTitleFront, titleFront, textFront, subTitle, title, text}){
   const whoSectionLayerOne = useRef(null);
   const whoSectionLayerTwo= useRef(null);
   const [scrollAllowed, setScrollAllowed] = useState(false); 
@@ -26,10 +26,9 @@ function HomeWhoSection({subTitleFront, titleFront, textFront, subTitle, title, 
     );
   };
   const moveDiagonalMidle = () =>{
-    if(whoSplitScreenDone && window.scrollY > 0){
-      updateDiagonalPoints(0, diagonalPoints[0].value + 55);
-      updateDiagonalPoints(1, diagonalPoints[1].value + 55);
-    
+    if(whoSplitScreenDone){
+      updateDiagonalPoints(0, diagonalPoints[0].value + 60);
+      updateDiagonalPoints(1, diagonalPoints[1].value + 60);
       whoSectionLayerTwo.current.style.transition = `clip-path 2s ease-in-out`;
       whoSectionLayerTwo.current.style.clipPath = `polygon(0, 0,  ${diagonalPoints[0].value}%, 0, ${diagonalPoints[1].value}%, 100% , 0% 100%)`;
       whoSectionLayerTwo.current.style.transition = `clip-path 0.5s ease-in-out`;
@@ -38,14 +37,15 @@ function HomeWhoSection({subTitleFront, titleFront, textFront, subTitle, title, 
       }
     }
   }
-  
+
   useEffect(() => {   
     //Clip for the split screen
     if (whoSectionLayerTwo.current) {
-      whoSectionLayerTwo.current.style.clipPath = `polygon(0 0, ${diagonalPoints[0].value}% 0%, ${diagonalPoints[1].value}% 100%, 0 100%)`;
+      whoSectionLayerTwo.current.style.clipPath = `polygon(0 ${diagonalPoints[0].value}%, 100% ${diagonalPoints[1].value}%, 100% 100%, 0% 100%)`;
     }
 
     const handleScroll = (e) => {
+
       // Determine the scroll/touches force
       let scrollYForce = e.deltaY;
       let toucheForce = null;
@@ -83,23 +83,22 @@ function HomeWhoSection({subTitleFront, titleFront, textFront, subTitle, title, 
           scrollTouchForce = 20;
         }
       }
-
       if(diagonalPoints[1].value === diagonalPoints[1].min){
-        setWhoSplitScreenDone(true);
-        moveDiagonalMidle();
+        //setWhoSplitScreenDone(true);
+        //moveDiagonalMidle();
         setScrollAllowed(true);
       }
 
-      if(window.scrollY === 0 && scrollDirection === "down"){
+      if(window.scrollY === 0  && scrollDirection === "down" && diagonalPoints[1].value === diagonalPoints[1].min){
         setScrollAllowed(false);
-      }
+      }   
 
       if(!scrollAllowed){
         e.preventDefault();
         if(whoSectionLayerTwo && scrollTouchForce){
           updateDiagonalPoints(0, diagonalPoints[0].value - scrollTouchForce);
           updateDiagonalPoints(1, diagonalPoints[1].value - scrollTouchForce);
-          whoSectionLayerTwo.current.style.clipPath = `polygon(0, 0,  ${diagonalPoints[0].value}%, 0, ${diagonalPoints[1].value}%, 100% , 0% 100%)`;
+          whoSectionLayerTwo.current.style.clipPath = `polygon(0 ${diagonalPoints[0].value}%, 100% ${diagonalPoints[1].value}%, 100% 100%, 0% 100%)`;
         }
       }
     };
@@ -115,13 +114,13 @@ function HomeWhoSection({subTitleFront, titleFront, textFront, subTitle, title, 
     };
   }, [scrollAllowed, diagonalPoints, previousTouche, isTouchpad, whoSplitScreenDone]);
   return <>
-    <section id="home-who-section" className="hidden lg:block">
+    <section id="home-who-section-mobile" className="lg:hidden">
       <div className="split-screen-wraper">
-        <SplitLayer ref={whoSectionLayerOne} subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitle} title={title} text={text} layerPosition="one" color="color-text-light"/>
-        <SplitLayer ref={whoSectionLayerTwo}  subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitle} title={title} text={text} layerPosition="two" color="color-text-dark"/>
+        <SplitLayerMobile ref={whoSectionLayerOne} subTitle={subTitle} title={title} text={text} layerPosition="one" color="color-text-dark"/>
+        <SplitLayerMobile ref={whoSectionLayerTwo} subTitle={subTitleFront} title={titleFront} text={textFront} layerPosition="two" color="color-text-light"/>
       </div>
     </section>
   </>
 }
 
-export default HomeWhoSection
+export default HomeWhoSectionMobile

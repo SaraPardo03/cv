@@ -1,11 +1,11 @@
   import React, { useEffect, useRef, useState} from 'react';
   import MainNav from '../components/MainNav';
   import SplitLayerMobile from '../components/SplitLayerMobile';
+  import HomeWhoSectionMobile from '../components/HomeWhoSectionMobile';
   import HomeWhoSection from '../components/HomeWhoSection';
   import SectionCurrentProjects from '../components/SectionCurrentProjects';
 
   export function Home() {
-    const [mainNavVisible, setMainNavVisible] = useState(false);
     const [isAtTop, setIsAtTop] = useState(false);
     const [scrollAllowed, setScrollAllowed] = useState(false); 
     const [touches, setTouches] = useState(0);
@@ -146,20 +146,9 @@
     */
     return (
       <main>
-        <MainNav isVisible={mainNavVisible}/>
+        <MainNav/>
         <HomeWhoSection subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack}/>
-        {/*<section id="home-who-section" className="hidden lg:block">
-          <div className="split-screen-wraper">
-            <SplitLayer  subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="one" color="color-text-dark"/>
-            <SplitLayer subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="two" color="color-text-light"/>
-          </div>
-        </section>*/}
-        <section id="home-who-section-mobile" className="lg:hidden">
-          <div className="split-screen-wraper">
-            <SplitLayerMobile ref={layerOne} subTitle={subTitleBack} title={titleBack} text={textBackMobile} layerPosition="one" color="color-text-dark"/>
-            <SplitLayerMobile ref={layerTwo} subTitle={subTitleFront} title={titleFront} text={textFrontMobile} layerPosition="two" color="color-text-light"/>
-          </div>
-        </section>
+        <HomeWhoSectionMobile subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFrontMobile} subTitle={subTitleBack} title={titleBack} text={textBackMobile}/>
         <SectionCurrentProjects/>
       </main>
     );

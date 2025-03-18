@@ -5,44 +5,37 @@ const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle,
   const navigate = useNavigate();
   // Navigate to About page on button click
   const handleClickGoToAbout = e => {
-    navigate(`/about`);
+    navigate(`/`);
   };
   return (
     <div ref={ref} className={`split-screen-layer ${layerPosition} ${color} flex flex-col`}>
-      {/*<div className="profile-container relative flex flex-col">
-          <div className="bg-profile flex flex-col">
-            <div className="flex-none min-h-[33vh]"></div>
-            <div className="flex-1 img"></div>
-          </div>
-          <div className="z-10 flex-1 flex w-[100%] justify-end px-[80px]">
-            <div className="w-[40%]">
-              <h1 className="pale pt-[20px]">{subTitle}</h1>
-              <h2 className="deep pb-[20px]">{title}</h2>
-              <p>{text}</p>
-            </div>
-          </div>
-          <div className="flex-1 w-[100%] px-[80px] bg-red-300">
-            <div className="w-[40%]">
-              <h1 className="pale pt-[20px]">{subTitleFront}</h1>
-              <h2 className="deep pb-[20px]">{titleFront}</h2>
-              <p>{textFront}</p>
-            </div>
-          </div>
-      </div>*/}
       <div className="flex-non">
-        <div className="flex flex-row gap-x-[200px] px-[80px] items-stretch pt-[40px]">
-          <div className="flex-1">
+        <div className="flex flex-row gap-x-[100px] xl:gap-x-[200px] px-[80px] items-stretch pt-[40px]">
+          <div className="back flex-1">
             <h1 className="pale pt-[20px]">{subTitle}</h1>
             <h2 className="deep pb-[20px]">{title}</h2>
             <p>{text}</p>
           </div>
-          <div className="flex-1">
+          <div className="front flex-1">
             <h1 className="pale pt-[20px]">{subTitleFront}</h1>
             <h2 className="deep pb-[20px]">{titleFront}</h2>
             <p>{textFront}</p>
           </div>
         </div>
-        <div className="bg-green-300 h-[40px]"></div>
+        <div className="h-[40px] flex flex-row px-[80px]">
+          <div className="flex-1">
+              <a href="https://github.com/SaraPardo03" target="_blank" rel="noopener noreferrer" className="px-[4px]">
+                <i className="text-[30px] bi bi-github"></i>
+              </a>
+              <a href="https://github.com/SaraPardo03" target="_blank" rel="noopener noreferrer" className="px-[4px]">
+                <i className="text-[30px] bi bi-github"></i>
+              </a>
+          </div>
+          <div className="flex-1  flex justify-center ">      
+            <button onClick={handleClickGoToAbout} className="px-[25px] pt-[8px] pb-[10px] ">Mon parcours</button>
+          </div>
+          <div className="flex-1 flex justify-end"></div>
+        </div>
       </div>
       <div className="flex-1  img">
       </div>
