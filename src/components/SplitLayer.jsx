@@ -5,7 +5,7 @@ const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle,
   const navigate = useNavigate();
   // Navigate to About page on button click
   const handleClickGoToAbout = e => {
-    navigate(`/`);
+    navigate(`/about`);
   };
   return (
     <div ref={ref} className={`split-screen-layer ${layerPosition} ${color} flex flex-col`}>
