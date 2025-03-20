@@ -117,8 +117,8 @@ function HomeWhoSection({subTitleFront, titleFront, textFront, subTitle, title, 
   return <>
     <section id="home-who-section" className="hidden lg:block">
       <div className="split-screen-wraper">
-        <SplitLayer ref={whoSectionLayerOne} subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitle} title={title} text={text} layerPosition="one" color="color-text-light"/>
-        <SplitLayer ref={whoSectionLayerTwo}  subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitle} title={title} text={text} layerPosition="two" color="color-text-dark"/>
+        <SplitLayer ref={whoSectionLayerOne} subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitle} title={title} text={text} layerPosition="one" color="color-text-dark"/>
+        <SplitLayer ref={whoSectionLayerTwo}  subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitle} title={title} text={text} layerPosition="two" color="color-text-light"/>
       </div>
     </section>
   </>

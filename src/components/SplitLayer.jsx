@@ -22,13 +22,13 @@ const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle,
             <p>{textFront}</p>
           </div>
         </div>
-        <div className="h-[40px] flex flex-row px-[80px]">
+        <div className="h-[40px] flex flex-row px-[80px] my-[15px]">
           <div className="flex-1">
               <a href="https://github.com/SaraPardo03" target="_blank" rel="noopener noreferrer" className="px-[4px]">
                 <i className="text-[30px] bi bi-github"></i>
               </a>
-              <a href="https://github.com/SaraPardo03" target="_blank" rel="noopener noreferrer" className="px-[4px]">
-                <i className="text-[30px] bi bi-github"></i>
+              <a href="https://www.linkedin.com/in/sarah-pardo-8a2087a2/" target="_blank" rel="noopener noreferrer" className="px-[4px]">
+                <i className="text-[30px]  bi bi-linkedin"></i>
               </a>
           </div>
           <div className="flex-1  flex justify-center ">      

@@ -116,8 +116,8 @@ function HomeWhoSectionMobile({subTitleFront, titleFront, textFront, subTitle, t
   return <>
     <section id="home-who-section-mobile" className="lg:hidden">
       <div className="split-screen-wraper">
-        <SplitLayerMobile ref={whoSectionLayerOne} subTitle={subTitle} title={title} text={text} layerPosition="one" color="color-text-dark"/>
-        <SplitLayerMobile ref={whoSectionLayerTwo} subTitle={subTitleFront} title={titleFront} text={textFront} layerPosition="two" color="color-text-light"/>
+        <SplitLayerMobile ref={whoSectionLayerOne} subTitle={subTitle} title={title} text={text} layerPosition="one" color="color-text-light"/>
+        <SplitLayerMobile ref={whoSectionLayerTwo} subTitle={subTitleFront} title={titleFront} text={textFront} layerPosition="two" color="color-text-dark"/>
       </div>
     </section>
   </>

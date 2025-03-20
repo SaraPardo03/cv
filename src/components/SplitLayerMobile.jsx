@@ -27,12 +27,12 @@ const SplitLayerMobile = forwardRef(({ subTitle, title, text, layerPosition , co
                 <i className="text-[30px] bi bi-github"></i>
               </a>
               <a 
-                href="https://github.com/SaraPardo03" 
+                href="https://www.linkedin.com/in/sarah-pardo-8a2087a2/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-[4px]"
               >
-                <i className="text-[30px] bi bi-github"></i>
+                <i className="text-[30px]  bi bi-linkedin"></i>
               </a>
             </div>
             <div className='flex-1 '></div>
