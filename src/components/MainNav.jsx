@@ -103,14 +103,14 @@ function MainNav({}) {
     </nav>
     <nav ref={mainNavMobile} id="main-nav-mobile" className='lg:hidden'>
       <ul className="flex flex-col p-0">
-        <li className="flex-1 bg-red-700 pl-[25px]"><a href="/about">A propos</a></li>
-        <li className="flex-1 bg-red-600"><a href="/projects">Projets</a></li>
-        <li className="flex-1 bg-red-500"></li>
-        <li className="flex-1 bg-red-400"></li>
-        <li className="flex-1 bg-red-300"></li>
-        <li className="flex-1 bg-red-200"></li>
-        <li className="flex-1 bg-red-100"></li>
-        <li className="flex-1 bg-red-50"></li>
+        <li className="flex-1 bg-accent-700 pl-[25px]"><a href="/about">A propos</a></li>
+        <li className="flex-1 bg-accent-600 pl-[25px]"><a href="/projects">Projets</a></li>
+        <li className="flex-1 bg-accent-500"></li>
+        <li className="flex-1 bg-accent-400"></li>
+        <li className="flex-1 bg-accent-300"></li>
+        <li className="flex-1 bg-accent-200"></li>
+        <li className="flex-1 bg-accent-100"></li>
+        <li className="flex-1 bg-accent-50"></li>
       </ul>
     </nav>
   </>);

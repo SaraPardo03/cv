@@ -11,6 +11,17 @@ VARS
 ############################################################ */
 $main-nav-height:80px;
 /* color */
+$accent-50: #FBE0E0;
+$accent-100: #F9B8B8;
+$accent-200: #F79F9F;
+$accent-300: #F78686;
+$accent-400: #F66D6D;
+$accent-500: #F87575; /* Couleur de base */
+$accent-600: #F55C5C;
+$accent-700: #F34444;
+$accent-800: #F12B2B;
+$accent-900: #E91313;
+
 $primary:#F9F9F9;
 $secondary: #08415C;
 $accent: #F87575;
@@ -59,6 +70,36 @@ $light-pale: #EFEFEF;
 }
 .bg-accent{
   background-color: $accent !important
+}
+.bg-accent-50{
+  background-color: $accent-50;
+}
+.bg-accent-100{
+  background-color: $accent-100;
+}
+.bg-accent-200{
+  background-color: $accent-200;
+}
+.bg-accent-300{
+  background-color: $accent-300;
+}
+.bg-accent-400{
+  background-color: $accent-400;
+}
+.bg-accent-500{
+  background-color: $accent-500;
+}
+.bg-accent-600{
+  background-color: $accent-600;
+}
+.bg-accent-700{
+  background-color: $accent-700;
+}
+.bg-accent-800{
+  background-color: $accent-800;
+}
+.bg-accent-900{
+  background-color: $accent-900;
 }
 .no-scroll {
   overflow: hidden;
@@ -110,6 +151,7 @@ html{
   font-size: 17px;
 }
 
+
 h1{
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -121,15 +163,67 @@ h2{
   font-weight:bold;
   line-height: 1;
 }
+h1.title,
+h2.title,
+h3.title,
+h4.title,
+h5.title,
+h6.title {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight:bold;
+  line-height: 1;
+}
+h1.subtitle,
+h2.subtitle,
+h3.subtitle,
+h4.subtitle,
+h5.subtitle,
+h6.subtitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  line-height: 1;
+  span{
+    color: $accent;
+  }
+}
+
 @media(max-width:1024px){  
   html{
     font-size: 18px;
   }
+
   h1{
     font-size: 0.8rem;
   }
   h2{
     font-size: 2.2rem;
+  }
+
+  h1.subtitle,
+  h2.subtitle,
+  h3.subtitle,
+  h4.subtitle,
+  h5.subtitle,
+  h6.subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  h1.title,
+  h2.title,
+  h3.title,
+  h4.title,
+  h5.title,
+  h6.title {
+    font-size: 2rem;
+    font-style: italic;
+    font-weight:bold;
+    text-transform: none;
+    line-height: 1;
+    span{
+      color: $accent;
+    }
   }
 }
 
@@ -163,6 +257,49 @@ button.secondary:hover{
   background-color: $light-deep;
   color:$dark-deep;
 }
+
+/* -----------------------------------------------------------
+    SKILL BAR
+------------------------------------------------------------*/
+.skill-bar-container{
+  position: relative;
+  width: 100%;
+  border: solid $dark-deep 1px;
+  .layer{
+    text-transform: uppercase;
+    padding: 10px 10px 8px 10px;
+    width: 100%;
+  }
+  .layer.two{
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: $accent;
+    color:$primary
+  }
+}
+
+/* -----------------------------------------------------------
+    TAGS
+------------------------------------------------------------*/
+
+.tag{
+  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  display: inline;
+  background-color: $dark-neutral;
+  color: $light-deep;
+}
+.tag.light{
+  background-color: $light-deep;
+  color: $dark-deep;
+}
+
+@media(max-width:1024px){ 
+  .tag{
+    font-size: 12px;
+  }
+ }
 
 /* -----------------------------------------------------------
     MAIN NAV 
@@ -255,9 +392,7 @@ button.secondary:hover{
   PAGES 
 ################################################### */
 
-/* -----------------------------------------------------------
-    HOME PAGE 
-------------------------------------------------------------*/
+
 
 /* WHO SECTION MOBILE */ 
 #home-who-section-mobile {
@@ -265,7 +400,7 @@ button.secondary:hover{
     width: 100%;
     position: relative;
     .split-screen-layer{
-      background-color: $primary;
+      background-color: $accent;
       width: 100%;
       .layer-wraper{
         height: 90vh;
@@ -275,7 +410,7 @@ button.secondary:hover{
         min-height:140px;
       }
       .img{
-        background-image: url(../assets/img/image-1.png);
+        background-image: url(../assets/img/portraitNB.png);
         background-position:bottom;
         background-repeat: no-repeat;
         background-size:contain;
@@ -317,11 +452,11 @@ button.secondary:hover{
       }
     }
     .split-screen-layer.two{
-      background-color:$accent;
+      background-color:$primary;
       position: absolute;
       top:0px;
       .img{
-        background-image: url(../assets/img/image-2.png);
+        background-image: url(../assets/img/portraitDraw2.png);
       }
     }
   }
@@ -345,11 +480,11 @@ button.secondary:hover{
     position: relative;
     .split-screen-layer{
       width: 100%;
-      background-color: $accent;
+      background-color: $primary;
       height: calc(100vh - $main-nav-height);
       height: calc(100svh - 60px);
       .img{
-        background-image: url(../assets/img/image-2.png);
+        background-image: url(../assets/img/portraitDraw2.png);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -391,13 +526,13 @@ button.secondary:hover{
       }
     }
     .split-screen-layer.two{
-      background-color: $primary;
+      background-color: $accent;
       position: absolute;
       top:0;
       left:0;
       .img{
         background-position: center;
-        background-image: url(../assets/img/image-1.png);
+        background-image: url(../assets/img/portraitNB.png);
       }
     }
   }
@@ -457,3 +592,22 @@ button.secondary:hover{
   }
 }
 
+/* -----------------------------------------------------------
+    ABOUT ME PAGE 
+------------------------------------------------------------*/
+
+#about-tools-section-mobile{
+  height: 100vh;
+  .color-text-dark{
+    color:$dark-deep;
+  }
+  .color-text-light{
+    color:$light-deep;
+  }
+  .back-end-tools{
+    background-color: $primary;
+  }
+  .front-end-tools{
+    background-color: $secondary;
+  }
+}
