@@ -3,9 +3,10 @@
   import MainNav from '../components/MainNav';
   import HomeWhoSectionMobile from '../components/HomeWhoSectionMobile';
   import HomeWhoSection from '../components/HomeWhoSection';
-  import SectionCurrentProjects from '../components/SectionCurrentProjects';
+  import HomeCurrentProjectsSection from '../components/HomeCurrentProjectsSection';
 
   export function Home() {
+    const [isMainNavVisible, setIsMainNavVisible] = useState(false);
     // Text content for front-end and back-end sections
     const titleFront = "Calcul créatif";
     const subTitleFront = "Développeuse Front-end";
@@ -18,6 +19,27 @@
     //const textBack = "Depuis 2008, je crée des applications ergonomiques en transformant des problèmes complexes en solutions simples avec un code propre et performant.";
     const textBackMobile = "Développeuse d'applications ergonomiques et efficaces";
     const textBack = "Depuis 2008, je crée des applications intuitives avec un code efficace.";
+
+    useEffect(() => {
+      const handleScroll = (e) => {
+        //Show main nav when the projects section is on top of the screen 
+        if(window.scrollY > 80){
+          setIsMainNavVisible(true);
+        }else{
+          setIsMainNavVisible(false);
+        }  
+      };    
+      // Add event listeners for wheel and touchmove events
+      window.addEventListener("wheel", handleScroll, { passive: false });
+      window.addEventListener("touchmove", handleScroll, { passive: false });
+
+      // Cleanup the event listeners when the component is unmounted
+      return () => {
+        window.removeEventListener("wheel", handleScroll);
+        window.removeEventListener("touchmove", handleScroll);
+      };
+    }, []);
+
     return (
       <>
         <Helmet>
@@ -30,10 +52,10 @@
           <link rel="canonical" href="http://192.168.1.109:5173/" />
         </Helmet>
         <main>
-          <MainNav/>
+          <MainNav isVisible={isMainNavVisible}/>
           <HomeWhoSection subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack}/>
           <HomeWhoSectionMobile subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFrontMobile} subTitle={subTitleBack} title={titleBack} text={textBackMobile}/>
-          <SectionCurrentProjects/>
+          <HomeCurrentProjectsSection/>
         </main>
       </>
     );
