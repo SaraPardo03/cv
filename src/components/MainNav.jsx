@@ -53,7 +53,7 @@ function MainNav({isVisible}) {
   };
 
   return (<>
-    <nav ref={navBar} id="main-nav" className='fixed top-0 right-0 left-0 z-10 w-full h-[80px] flex items-center lg:px-[80px] px-[25px]'>
+    <nav ref={navBar} id="main-nav" className='fixed top-0 right-0 left-0 z-20 w-full h-[80px] flex items-center lg:px-[80px] px-[25px]'>
       <div className='flex-1 nav-logo'>
         <h3 className='nav-logo-text w-fit relative'>
           <div className='nav-logo-clip bg-transparent py-[6px]'>
