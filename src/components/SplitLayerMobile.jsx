@@ -10,13 +10,13 @@ const SplitLayerMobile = forwardRef(({ subTitle, title, text, layerPosition , co
   return (
     <div ref={ref} className={`split-screen-layer ${layerPosition} ${color}`}>
       <div className="layer-wraper relative flex flex-col">
-        <div className="flex-none px-[25px]">
+        <div className="flex-none px-[25px] pt-[40px]">
           <div className='text'>
-            <h1 className="pale pt-[20px]">{subTitle}</h1>
-            <h2 className="deep pb-[20px]">{title}</h2>
+            <h1 className="subtitle pale">{subTitle}</h1>
+            <h2 className="title deep pb-[10px]">{title}</h2>
             <p>{text}</p>
           </div>
-          <div className='w-[100%]  flex flex-row items-center pt-[20px]'>
+          <div className='w-[100%] flex flex-row items-center '>
             <div className='flex justify-between'>
               <a 
                 href="https://github.com/SaraPardo03" 

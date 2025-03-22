@@ -12,13 +12,13 @@ const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle,
       <div className="flex-non">
         <div className="flex flex-row gap-x-[100px] xl:gap-x-[200px] px-[80px] items-stretch pt-[40px]">
           <div className="back flex-1">
-            <h1 className="pale pt-[20px]">{subTitle}</h1>
-            <h2 className="deep pb-[20px]">{title}</h2>
+            <h1 className="subtitle pale">{subTitle}</h1>
+            <h2 className="title deep pb-[10px]">{title}</h2>
             <p>{text}</p>
           </div>
           <div className="front flex-1">
-            <h1 className="pale pt-[20px]">{subTitleFront}</h1>
-            <h2 className="deep pb-[20px]">{titleFront}</h2>
+            <h1 className="subtitle pale">{subTitleFront}</h1>
+            <h2 className="title deep pb-[10px]">{titleFront}</h2>
             <p>{textFront}</p>
           </div>
         </div>
@@ -32,7 +32,7 @@ const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle,
               </a>
           </div>
           <div className="flex-1  flex justify-center ">      
-            <button onClick={handleClickGoToAbout} className="px-[25px] pt-[8px] pb-[10px] ">Mon parcours</button>
+            <button onClick={handleClickGoToAbout} className="px-[40px] pt-[8px] pb-[10px] ">Mon parcours</button>
           </div>
           <div className="flex-1 flex justify-end"></div>
         </div>
