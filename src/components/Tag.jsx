@@ -1,6 +1,6 @@
-const Tag = ({label}) => {
+const Tag = ({ label, color }) => {
   return (
-    <li className="tag rounded">
+    <li className={`tag ${color} rounded`}>
       {label}
     </li>
   );
