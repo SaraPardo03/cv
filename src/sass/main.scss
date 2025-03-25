@@ -35,7 +35,6 @@ $secondary:#4C6663;*/
 $accent: #eb5155;
 
 
-
 $dark-deep: #534B62;
 $dark-neutral : #696079;
 $dark-pale: #757575;
@@ -233,6 +232,7 @@ h6.subtitle {
       color: $accent;
     }
   }
+  
 }
 
 p{
@@ -279,31 +279,6 @@ button.secondary:hover{
   }
 }
 
-.time-line {
-  z-index: 10;
-  position: absolute;
-  width: 20px;
-  top:0px;
-  left: 0px;
-  height: 110vh;
-  height: 110svh;
-  background: linear-gradient(to right, transparent 0%, transparent 10px, $accent calc(10px), $accent calc(13px), transparent calc(13px), transparent 100%);  
-  .dot{
-    border: solid 1px $primary;
-    margin-left: 6px;
-    margin-top: 106px;
-    width: 11px;
-    height: 11px;
-    background:$accent;
-    border-radius: 10px;
-  }
-}
-.time-line.light {
-  .dot{
-    border: solid 1px $secondary;
-    border-radius: 10px;
-  }
-}
 
 /* -----------------------------------------------------------
     SKILL BAR
@@ -321,7 +296,7 @@ button.secondary:hover{
     position: absolute;
     top:0;
     left: 0;
-    background-color: $accent;
+    background-color: $accent-300;
     color:$primary
   }
 }
@@ -401,8 +376,7 @@ button.secondary:hover{
 #main-nav-mobile{
   visibility: hidden;
   position: fixed;
-  z-index: 200;
-  margin-top: $main-nav-height;
+  z-index: 20;
   height: calc(100vh - $main-nav-height);
   width: 100vw;
   background: #ebeef07c;
@@ -652,7 +626,7 @@ button.secondary:hover{
 ------------------------------------------------------------*/
 
 #about-tools-section-mobile{
-  background-color: $primary;
+  background-color: $secondary;
   .color-text-dark{
     color:$dark-deep;
   }
@@ -660,11 +634,10 @@ button.secondary:hover{
     color:$light-deep;
   }
   .back-end-tools{
-    background-color: $primary;
+    background-color: $secondary;
   }
   .front-end-tools{
-    padding-top: 75px;
-    background-color: $secondary;
+    background-color: $primary;
     clip-path: polygon(0px 50px, 100% 0%, 100% 100%, 0% 100%);
   }
 }
@@ -697,7 +670,7 @@ button.secondary:hover{
 
 // ABOUT XP SECTION 
 /* TEXT */ 
-#about-xp-section{
+.about-xp-section, .about-xp-section-mobile{
   p.date{
     font-size: 0.8rem;
   }
@@ -716,8 +689,34 @@ button.secondary:hover{
     font-size: 0.9rem;
   }
 }
+// TIME LINE 
+.time-line {
+  z-index: 10;
+  position: absolute;
+  width: 20px;
+  top:0px;
+  left: 0px;
+  height: calc(100vh);
+  height: calc(100svh);
+  background: linear-gradient(to right, transparent 0%, transparent 10px, $accent calc(10px), $accent calc(13px), transparent calc(13px), transparent 100%);  
+  .dot{
+    border: solid 1px $primary;
+    margin-left: 6px;
+    margin-top: 106px;
+    width: 11px;
+    height: 11px;
+    background:$accent;
+    border-radius: 10px;
+  }
+}
+.time-line.light {
+  .dot{
+    border: solid 1px $secondary;
+    border-radius: 10px;
+  }
+}
 
-#about-xp-section{
+.about-xp-section{
   min-height: calc(100vh);
   min-height: calc(100svh);
   background-color: $primary;
@@ -748,12 +747,12 @@ button.secondary:hover{
       left: 0px;
       background-color: $accent-300;
       color:$dark-deep;
-      clip-path: polygon(0 0, 0 100%, 100% 0);    
+      clip-path: polygon(0 0, 55% 0, 45% 100%, 0% 100%);  
     }
   }
 }
 
-#about-xp-section.odd{
+.about-xp-section.odd{
   min-height: calc(100vh);
   min-height: calc(100svh);
   background-color: $secondary;
@@ -770,6 +769,179 @@ button.secondary:hover{
     }
     .skill.layer.two{
       color:$light-deep;
+    }
+  }
+}
+
+.about-xp-section-mobile{
+  background-color: $primary;
+  overflow: hidden;
+  .time-line{
+    height: calc(500vh);
+    height: calc(500svh);
+  }
+  .dot{
+      margin-top: 28px;
+  }
+  .about-xp-date{
+    background-color: $secondary;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+  }
+  ul{
+    list-style-type: square;
+    li::marker {
+      color: $dark-neutral;
+    }
+  }
+  .skills-list {
+    .skill{
+      width: 120px;
+      height: 80px;
+      background-color: $light-pale;
+      color:$dark-deep;
+    }
+    .skill.layer.two{
+      position: absolute;
+      top:0px;
+      left: 0px;
+      background-color: $accent-300;
+      color:$dark-deep;
+      clip-path: polygon(0 0, 55% 0, 45% 100%, 0% 100%);  
+    }
+  }
+  .about-xp-company{
+    background-color: $secondary;
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+.about-xp-section-mobile.odd{
+  background-color: $secondary;
+  .about-xp-date{
+    background-color: $primary;
+  }
+  .skills-list {
+    .skill{
+      color:$light-deep;
+      background-color: $dark-neutral;
+    }
+    .skill.layer.two{
+      color:$light-deep;
+    }
+  }
+  .about-xp-company{
+    background-color: $primary;
+  }
+}
+
+
+/* -----------------------------------------------------------
+    ARIANE  PAGE 
+------------------------------------------------------------*/
+#ariane-hero-banner-mobile{
+  background-color: $secondary;
+  .hero-img{
+    height: calc(100vw + $main-nav-height);
+    background-color: $accent;
+  }
+}
+
+#ariane-hero-banner{
+  background-color: $secondary;
+  .hero-img{
+    background-color: $accent;
+    height: 100vh;
+  }
+
+  .clip {
+    min-height: 100vh;
+    min-height: 100svh;
+    background-color: $accent;
+    clip-path: polygon(100% 0, 0% 100%, 0 0);
+  }
+}
+
+.ariane-description-section-mobile{
+  background-color: $primary;
+  .img{
+    background-color: $primary;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  }
+  .img.secondary{
+    background-color: $secondary;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  }
+  h2.title{
+    font-size: 1.3rem,
+  }
+  h3.subtitle{
+    font-size: 0.8rem,
+  }
+  ul{
+    list-style-type: square;
+    li::marker {
+      color: $dark-neutral;
+    }
+  }
+}
+
+.ariane-description-section-mobile.secondary{
+  background-color: $secondary;
+}
+.ariane-description-section-mobile.accent{
+  background-color: $accent;
+  ul{
+    list-style-type: square;
+    li::marker {
+      color: $light-neutral;
+    }
+  }
+}
+
+.ariane-description-section{
+  background-image: url(../assets/img/edit_22.png);
+  background-repeat: no-repeat;
+  background-position:0px -15px;
+  background-size: cover;
+  height: calc(100vh);
+  overflow: hidden;
+  .description{
+    background-color: $primary  ;
+    clip-path: polygon(0 0, 50% 0%, 40% 100%, 0% 100%);
+  }
+  ul{
+    list-style-type: square;
+    li::marker {
+      color: $dark-neutral;
+    }
+  }
+}
+
+.ariane-description-section.odd{
+  .description{
+    background-color: $primary;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 40% 100%);
+    p{
+      text-align: right;
+    }
+  }
+}
+
+.ariane-description-section.secondary{
+  background-image: url(../assets/img/edit_without_map.png);
+  .description{
+    background-color: $secondary ;
+  }
+}
+.ariane-description-section.accent{
+  background-image: url(../assets/img/list.jpg);
+  .description{
+    background-color: $accent ;
+  }
+  ul{
+    list-style-type: square;
+    li::marker {
+      color: $light-neutral;
     }
   }
 }

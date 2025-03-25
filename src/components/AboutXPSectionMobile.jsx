@@ -1,15 +1,15 @@
-function AboutXPSection({date, companyName, companySize, companyType, teamSize, teamType, npa, title, list, skills, odd}){
+function AboutXPSectionMobile({date, companyName, companySize, companyType, teamSize, teamType, npa, title, startTitle, start, list, skills, odd}){
   return <>
-    <section className={`about-xp-section hidden lg:flex flex-row relative ${odd ? odd : ""}`}>
+    <section className={`about-xp-section-mobile lg:hidden relative ${odd ? odd : ""}`}>
       <div className={`time-line ${odd ? "light" : ""}`}>
         <p className="dot"></p>
       </div>
-      <div className={`about-xp-date flex-none ps-[25px] w-[300px] pt-[100px] ${odd ? "color-text-dark" : "color-text-light "}`}>
+      <div className={`about-xp-date flex-none pt-[20px]  px-[25px] pb-[20px] ${odd ? "color-text-dark" : "color-text-light "}`}>
         <p className="company-name color-text-accent">{date}</p>
         <p className="subtitle">{companyName}</p>
         <p className="npa">{npa}</p>
       </div>
-      <div className={`about-xp-text flex-1 flex flex-col pt-[100px] ${odd ? "color-text-light" : "color-text-dark"}`}>
+      <div className={`about-xp-text flex-1 flex flex-col px-[25px] pt-[40px] ${odd ? "color-text-light" : "color-text-dark"}`}>
         <div className="flex-1">
           <h3 className="subtitle">Expérience</h3>
           <h2 className="title mb-[20px]"><span>{title}</span></h2>
@@ -22,7 +22,7 @@ function AboutXPSection({date, companyName, companySize, companyType, teamSize, 
           )}
         </div>
         {skills && skills.length > 0 && (
-          <div className="skills-list flex-1  items-center py-[20px] flex flex-wrap justify-between ">
+          <div className="skills-list flex-1  items-center py-[40px] flex flex-wrap gap-y-[20px] justify-between ">
             {skills.map((skill, index) => (
               <div key={index} >  
                 <div className="relative">
@@ -39,7 +39,7 @@ function AboutXPSection({date, companyName, companySize, companyType, teamSize, 
           </div>
         )}
       </div>
-      <div className={`about-xp-company flex-none flex flex-col justify-end items-end w-[300px] pb-[20px] pe-[25px] ${odd ? "color-text-dark" : "color-text-light "}`}>
+      <div className={`about-xp-company flex-none flex flex-col justify-end items-end px-[25px] pt-[30px] pb-[20px] ${odd ? "color-text-dark" : "color-text-light "}`}>
         <p className=" color-text-accent">{companyName}</p>
         <p className="company-infos">{companySize}</p>
         <p className="company-infos">{companyType}</p>
@@ -52,4 +52,4 @@ function AboutXPSection({date, companyName, companySize, companyType, teamSize, 
   </>
 }
 
-export default AboutXPSection
+export default AboutXPSectionMobile
