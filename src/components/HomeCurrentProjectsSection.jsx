@@ -9,7 +9,7 @@ function HomeCurrentProjectsSection() {
   //const resume = "Une application innovante pour les écrivains et créateurs de jeux textuels interactifs. Découvrez comment Ariane peut transformer votre processus de création et donner vie à vos récits interactifs."
   const resume = "Je travaille actuellement sur Ariane, une application pensée pour les écrivains et créateurs de jeux narratifs. Mon objectif ? Offrir un outil intuitif et puissant pour imaginer, structurer et donner vie à des histoires interactives captivantes."
   const handleClickGoToProjects = e =>{
-    navigate(`/projects`);
+    navigate(`/ariane`);
   }
   return (<>
   <section id="section-curent-projects" className="hidden lg:flex flex-row bg-secondary color-text-light">

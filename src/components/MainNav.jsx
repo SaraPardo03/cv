@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
+import { useNavigate } from "react-router-dom";
 import TypingText from './TypingText';
 function MainNav({isVisible}) {
+  const navigate = useNavigate();
   const navBar = useRef(null);
   const [lastName, setLastName] = useState('Pardo');
   const [firstName, setFirstName] = useState('Sarah');
@@ -44,6 +46,11 @@ function MainNav({isVisible}) {
       
   };
 
+  const handleNavLogoButtonClick = () => {
+    console.log("toto")
+    navigate(`/`);
+  };
+
   const handleNavButtonClick = () => {
     const nav = mainNavMobile.current;
     if (nav) {
@@ -54,7 +61,7 @@ function MainNav({isVisible}) {
 
   return (<>
     <nav ref={navBar} id="main-nav" className='fixed top-0 right-0 left-0 z-20 w-full h-[80px] flex items-center lg:px-[80px] px-[25px]'>
-      <div className='flex-1 nav-logo'>
+      <div className='flex-1 nav-logo' onClick={handleNavLogoButtonClick}>
         <h3 className='nav-logo-text w-fit relative'>
           <div className='nav-logo-clip bg-transparent py-[6px]'>
             <span className='text-nowrap pl-[10px] text-transparent'>
@@ -76,7 +83,7 @@ function MainNav({isVisible}) {
       </div>
       <ul className='lg:flex hidden w-fit flex flex-row space-x-[20px]'>
         <li><a href='/about'>A propos</a></li>
-        <li><a href='/projects'>projets</a></li>
+        <li><a href='/ariane'>Ariane</a></li>
       </ul>
       <div className='w.fit lg:hidden' onClick={handleNavButtonClick}>
         <i className="icon-open-nav bi bi-bar-chart-fill"></i>  
@@ -85,7 +92,7 @@ function MainNav({isVisible}) {
     <nav ref={mainNavMobile} id="main-nav-mobile" className='lg:hidden'>
       <ul className="flex flex-col p-0">
         <li className="flex-1 bg-accent-700 pl-[25px]"><a href="/about">A propos</a></li>
-        <li className="flex-1 bg-accent-600 pl-[25px]"><a href="/projects">Projets</a></li>
+        <li className="flex-1 bg-accent-600 pl-[25px]"><a href="/ariane">Ariane</a></li>
         <li className="flex-1 bg-accent-500"></li>
         <li className="flex-1 bg-accent-400"></li>
         <li className="flex-1 bg-accent-300"></li>
