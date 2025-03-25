@@ -2,7 +2,7 @@ import SkillBar from "./SkillsBar";
 
 function AboutToolsSection({phpTools, pythonTools, bashTools, bddTools, htmlCss, javascript, uiUx}){
   return <>
-    <section id="about-tools-section" className="hidden lg:flex flex flex-row ">
+    <section id="about-tools-section" className="hidden lg:flex flex flex-row">
       <div className="back-end-tools flex-1 px-[25px] color-text-dark pt-[100px]">
         <h2 className="subtitle pale">Outils</h2>
         <h1 className="title deep mb-[10px]">Développeuse <span>back-end</span></h1>
@@ -15,7 +15,6 @@ function AboutToolsSection({phpTools, pythonTools, bashTools, bddTools, htmlCss,
         </div>
       </div>
       <div className="clip flex-none w-[50px]">
-        <div className="bug"></div>
       </div>
       <div className="front-end-tools flex-1 px-[25px] pt-[100px] color-text-light">
         <h2 className="subtitle pale">Outils</h2>

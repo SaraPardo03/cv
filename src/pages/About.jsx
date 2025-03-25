@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import MainNav from '../components/MainNav';
 import AboutToolsSectionMobile from '../components/AboutToolsSectionMobile';
 import AboutToolsSection from '../components/AboutToolsSection';
+import AboutXPSectionMobile from '../components/AboutXPSectionMobile';
 import AboutXPSection from '../components/AboutXPSection';
 
 export function About() {
@@ -36,7 +37,7 @@ export function About() {
     "Autonomie et gestion des priorités,",
     "Veille technologique et bonnes pratiques web."
   ];
-  const bbSkills = ["JS", "WordPress", "SEO"];
+  const bbSkills = ["js", "wordpress", "seo", "tailwind"];
   const bbCompanySize = "PME";
   const bbCompanyType = "Développement Web & Digital";
   const bbTeamSize = "4 personnes";
@@ -64,7 +65,7 @@ export function About() {
       "Gestion des versions avec Git,",
       "Estimation et planification de projets,"
   ];
-  const topnetSkills = ["EXTJS", "PHP", "SQL"];
+  const topnetSkills = ["extjs", "php", "sql", "bash"];
   const topnetCompanySize = "PME";
   const topnetCompanyType = "Services de nettoyage";
   const topnetTeamSize = "3 à 6 personnes";
@@ -81,7 +82,7 @@ export function About() {
     "Rédaction de documentation technique",
   ];
 
-  const hylSkills = ["HTML5", "CSS3", "PHP"];
+  const hylSkills = ["html5", "css3", "php", "sql"];
   const hylCompanySize = "PME";
   const hylCompanyType = "Services informatique";
   const hylTeamSize = "3 personnes";
@@ -100,17 +101,51 @@ export function About() {
   return (
     <main>
       <MainNav isVisible={isMainNavVisible}/>
-      <AboutToolsSectionMobile phpTools={phpTools} pythonTools={pythonTools} bashTools={bashTools} bddTools={bddTools} htmlCss={htmlCss} javascript={javascript} uiUx={uiUx}/>
-      <div className='scroll-snap-container'>
-        <div className='snap'>
-          <AboutToolsSection phpTools={phpTools} pythonTools={pythonTools} bashTools={bashTools} bddTools={bddTools} htmlCss={htmlCss} javascript={javascript} uiUx={uiUx} />
-        </div>
+      <div className='lg:hidden mt-[80px]'></div>
+      <AboutXPSectionMobile 
+        odd="odd"
+        date="2024-2025" 
+        companyName="BB Switzerland" 
+        npa="Genève" title="Développeuse Fullstack" 
+        list={displayFullLists ? bbList : bbListSort}
+        skills={bbSkills} 
+        companySize={bbCompanySize} 
+        companyType={bbCompanyType} 
+        teamSize={bbTeamSize} 
+        teamType={bbTeamType}
+      />
+      <AboutXPSectionMobile
+        date="2016-2022" 
+        companyName="Topnet SA" 
+        npa="Genève" 
+        title="Développeuse front-end" 
+        list={displayFullLists ? topnetList : topnetListSort}
+        skills={topnetSkills} 
+        companySize={topnetCompanySize} 
+        companyType={topnetCompanyType} 
+        teamSize={topnetTeamSize} 
+        teamType={topnetTeamType}
+      />
+      <AboutXPSectionMobile
+        odd="odd"
+        date="2008-2013" 
+        companyName="Hyl-Informatique" 
+        npa="Genève" 
+        title="Apprentie informaticienne" 
+        list={hylList} 
+        skills={hylSkills} 
+        companySize={hylCompanySize} 
+        companyType={hylCompanyType} 
+        teamSize={hylTeamSize} 
+        teamType={hylTeamType}
+      />
+      <AboutToolsSectionMobile  phpTools={phpTools} pythonTools={pythonTools} bashTools={bashTools} bddTools={bddTools} htmlCss={htmlCss} javascript={javascript} uiUx={uiUx}/>
+      <div className='hidden lg:block scroll-snap-container'>
         <div className='snap'>
           <AboutXPSection 
             date="2024-2025" 
             companyName="BB Switzerland" 
             npa="Genève" title="Développeuse Fullstack" 
-            startTitle={bbStartTitle} start={bbStart} 
             list={displayFullLists ? bbList : bbListSort}
             skills={bbSkills} 
             companySize={bbCompanySize} 
@@ -125,8 +160,6 @@ export function About() {
             companyName="Topnet SA" 
             npa="Genève" 
             title="Développeuse front-end" 
-            startTitle={topnetStartTitle} 
-            start={topnetStart} 
             list={displayFullLists ? topnetList : topnetListSort}
             skills={topnetSkills} 
             companySize={topnetCompanySize} 
@@ -135,8 +168,22 @@ export function About() {
             teamType={topnetTeamType}/>
         </div>
         <div className='snap'>
-          <AboutXPSection date="2008-2013" companyName="Hyl-Informatique  " npa="Genève" title="Apprentie informaticienne" startTitle={hylStartTitle} start={hylStart} list={hylList} skills={hylSkills} companySize={hylCompanySize} companyType={hylCompanyType} teamSize={hylTeamSize} teamType={hylTeamType}/>
+          <AboutXPSection 
+            date="2008-2013" 
+            companyName="Hyl-Informatique" 
+            npa="Genève" 
+            title="Apprentie informaticienne" 
+            list={hylList} 
+            skills={hylSkills} 
+            companySize={hylCompanySize} 
+            companyType={hylCompanyType} 
+            teamSize={hylTeamSize} 
+            teamType={hylTeamType}
+          />
         </div>
+        <div className='snap'>
+          <AboutToolsSection phpTools={phpTools} pythonTools={pythonTools} bashTools={bashTools} bddTools={bddTools} htmlCss={htmlCss} javascript={javascript} uiUx={uiUx} />
+      </div>
       </div>
     </main>
   );
