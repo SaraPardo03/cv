@@ -8,6 +8,8 @@
   import mapImg from "../assets/img/edit_22.png";
   import pdfImg from "../assets/img/edit_without_map.png"
   import saveImg from "../assets/img/list.jpg"
+  import ArianeContribution from '../components/ArianeContribution';
+  import ArianeContributionMobile from '../components/ArianeContributionMobile';
 
   export function Ariane() {
     const [isMainNavVisible, setIsMainNavVisible] = useState(true);
@@ -46,7 +48,7 @@
     ]
 
     const saveSubtitle = "Votre brouillon est toujours sécurisé";
-    const saveTitle = "Sauvegarde et Partage"
+    const saveTitle = "Sauvegarde et partage"
     const saveDescription = "Reprenez où vous vous étiez arrêté·e"
     const saveList = [
       "Stockage local ou cloud de vos versions", 
@@ -64,30 +66,6 @@
       "Suivez les indices cachés dans l'histoire"
     ]
     */
-    /*
-    useEffect(() => {
-      
-      const handleScroll = (e) => {
-        //Show main nav when the projects section is on top of the screen 
-        if(window.scrollY < 0){
-          setIsMainNavVisible(false);
-        }
-        if(window.scrollY >= 0){
-          setIsMainNavVisible(true);
-        }  
-        console.log("window.screenY", window, window.scrollY, window.scrollY < 0);
-      };    
-      // Add event listeners for wheel and touchmove events
-      window.addEventListener("wheel", handleScroll, { passive: false });
-      window.addEventListener("touchmove", handleScroll, { passive: false });
-
-      // Cleanup the event listeners when the component is unmounted
-      return () => {
-        window.removeEventListener("wheel", handleScroll);
-        window.removeEventListener("touchmove", handleScroll);
-      };
-    }, []);*/
-
     return (
       <>
         <Helmet>
@@ -115,11 +93,14 @@
             <div className='snap'>
               <ArianeDescription odd="odd" color="accent" img={saveImg} title={saveTitle} subTitle={saveSubtitle} description={saveDescription} list={saveList}/>
             </div>
+            <div className='snap'>
+              <ArianeContribution/>     
+            </div>
           </div>
-         <ArianeDescriptionMobile color="primary" img={mapImg} title={mapTitle} subTitle={mapSubtitle} description={mapDescription} list={mapList}/>
-          <ArianeDescriptionMobile color="secondary" img={pdfImg} title={pdfTitle} subTitle={pdfSubtitle} description={pdfDescription} list={pdfList}/>
-          <ArianeDescriptionMobile color="accent" img={saveImg} title={saveTitle} subTitle={saveSubtitle} description={saveDescription} list={saveList}/>
-
+          <ArianeDescriptionMobile color="primary" img={mapImg} title={mapTitle} subTitle={mapSubtitle} description={mapDescription} list={mapList}/>
+          <ArianeDescriptionMobile color="accent" img={pdfImg} title={pdfTitle} subTitle={pdfSubtitle} description={pdfDescription} list={pdfList}/>
+          <ArianeDescriptionMobile color="secondary" img={saveImg} title={saveTitle} subTitle={saveSubtitle} description={saveDescription} list={saveList}/>
+          <ArianeContributionMobile/>     
         </main>
       </>
     );
