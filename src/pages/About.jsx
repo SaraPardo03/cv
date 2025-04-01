@@ -101,7 +101,7 @@ export function About() {
   return (
     <main>
       <MainNav isVisible={isMainNavVisible}/>
-      <div className='lg:hidden mt-[80px]'></div>
+      <div className='lg:hidden pt-[80px]'></div>
       <AboutXPSectionMobile 
         odd="odd"
         date="2024-2025" 

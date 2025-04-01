@@ -37,7 +37,6 @@ function HomeWhoSectionMobile({subTitleFront, titleFront, textFront, subTitle, t
       }
     }
   }
-
   useEffect(() => {   
     //Clip for the split screen
     if (whoSectionLayerTwo.current) {
