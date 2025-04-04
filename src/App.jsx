@@ -6,7 +6,6 @@ import MainNav from './components/MainNav';
 import { Home } from './pages/Home';  
 import { About } from './pages/About';  
 import { Ariane } from './pages/Ariane';
-import { Contacts } from './pages/Contacts';
 import './sass/main.scss';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -31,14 +30,6 @@ const router = createBrowserRouter([
     element:<>
       <ScrollToTop/>
       <Ariane/>
-    </>
-  },
-  {
-    path:"/contact",
-    element:<>
-      <ScrollToTop/>
-      <MainNav/>
-      <Contacts/>
     </>
   },
 ]);
