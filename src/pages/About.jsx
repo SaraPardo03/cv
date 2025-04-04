@@ -8,6 +8,22 @@ import AboutXPSection from '../components/AboutXPSection';
 export function About() {
   const [isMainNavVisible, setIsMainNavVisible] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); 
+  const [mosaicSize, setMosaicSize] = useState(6);
+  const square = Array.from({ length: mosaicSize * mosaicSize }, (_, i) => i + 1);
+  const opacityValues = [10, 20, 30, 40, 50, 60];
+  // Text content for front-end and back-end sections
+  const titleFront = "Calcul créatif";
+  const subTitleFront = "Développeuse Front-end";
+  const textFront = "Le dessin, le design graphique et l'UI/UX font désormais partie intégrante de ma démarche de développeuse, me permettant de livrer des interfaces aussi ergonomiques qu'attrayantes.";
+  const textFrontMobile = "Passionées de design et UI/UX"
+  //const textFront = "Le design et l’UX guident ma démarche pour des interfaces ergonomiques et attractives.";
+  
+  const titleBack = "Art du code";
+  const subTitleBack = "Développeuse Back-end";
+  const textBack = "Depuis 2008, je crée des applications ergonomiques en transformant des problèmes complexes en solutions simples avec un code propre et performant.";
+  const textBackMobile = "Développeuse d'applications ergonomiques et efficaces";
+  //const textBack = "Depuis 2008, je crée des applications intuitives avec un code efficace.";
+  
   const phpTools = ["PHP 7/8", "POO", "API REST", "JSON/XML", "Sessions", "Sécurité", "Postman"];
   const pythonTools = ["API REST", "Flask", "Django", "Pandas", "NumPy", "JWT"];
   const bashTools= ["Scripting", "Automatisation", "Permissions", "Cron"];
@@ -95,13 +111,64 @@ export function About() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  console.log("toto", window.innerWidth );
   const displayFullLists = windowWidth > 1280;
 
   return (
     <main>
       <MainNav isVisible={isMainNavVisible}/>
       <div className='lg:hidden pt-[80px]'></div>
+      <section id="about-hero-banner-mobile" className="lg:hidden bg-red-300 overflow-hidden">
+        <div className="split-screen-wraper relative">
+          <div className="layer one h-[100vw] w-full">
+          <div className='mosaic-wraper h-[100vw] w-[100vw] overflow-hidden absolute top-0 left-0 z-[11] '>
+            <div className='mosaic primary h-[150vw] w-[150vw]'>
+              <div className={`grid grid-flow-col grid-rows-6 gap-0`}>
+                {square.map((num, index) => {
+                  const opacityIndex = index % opacityValues.length; // Tourne en boucle dans le tableau
+                  const opacityValue = opacityValues[opacityIndex] / 100; // Convertir pour CSS
+
+                  return (
+                    <div key={num} className="square w-[25vw] h-[25vw] bg-red-300" style={{ opacity: opacityValue }}>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          </div>
+          <div className="layer two h-[100vw] w-full  absolute top-0 left-0 z-10">
+          <div className='mosaic-wraper h-[100vw] w-[100vw] overflow-hidden absolute top-0 left-0 z-[200] '>
+            <div className='mosaic accent h-[150vw] w-[150vw]'>
+              <div className={`grid grid-flow-col grid-rows-6 gap-0`}>
+                {square.map((num, index) => {
+                  const opacityIndex = index % opacityValues.length; // Tourne en boucle dans le tableau
+                  const opacityValue = opacityValues[opacityIndex] / 100; // Convertir pour CSS
+
+                  return (
+                    <div key={num} className="square w-[25vw] h-[25vw] bg-red-300" style={{ opacity: opacityValue }}>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          </div>
+          
+        </div>
+        <div className="text-wraper">
+          <div className='px-[25px]'>
+              <h1 className="pt-[40px]  subtitle pale">{subTitleBack}</h1>
+              <h2 className="title deep pb-[10px]">{titleBack}</h2>
+              <p className='pb-[20px]'>{textBack}</p>
+          </div>
+          <div className='clip'></div>
+          <div className="bg-accent px-[25px] color-text-light">
+              <h1 className="subtitle pale">{subTitleFront}</h1>
+              <h2 className="title deep pb-[10px]">{titleFront}</h2>
+              <p className='pb-[40px]'>{textFront}</p>
+          </div>
+        </div>
+      </section>
       <AboutXPSectionMobile 
         odd="odd"
         date="2024-2025" 

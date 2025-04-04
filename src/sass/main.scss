@@ -428,7 +428,7 @@ button.clip.primary{
 #main-nav-mobile{
   visibility: hidden;
   position: fixed;
-  z-index: 20;
+  z-index: 200 ;
   margin-top: $main-nav-height;
   height: calc(100vh - $main-nav-height);
   width: 100vw;
@@ -677,6 +677,58 @@ button.clip.primary{
 /* -----------------------------------------------------------
     ABOUT ME PAGE 
 ------------------------------------------------------------*/
+
+#about-hero-banner-mobile{
+  .mosaic{
+    rotate: 45deg;
+    position: absolute;
+    top: -25vw;
+    left: -25vw;
+    .square{
+      width: 25vw;
+      height: 25vw;
+      transition: all 0.5ms ease-in-out;
+    }
+  }
+  .mosaic.primary{
+    .square{
+      border-left: solid $accent 1px;
+      border-bottom: solid $accent 1px;
+      background-color: $primary;
+    }
+  }
+  .mosaic.accent{
+    .square{
+      border-left: solid $primary 1px;
+      border-bottom: solid $primary 1px;
+      background-color: $accent;
+    }
+  }
+  .split-screen-wraper{
+    .layer{
+      background-color: $accent;
+      background-image: url(../assets/img/portraitNB.png);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    
+    .layer.two{
+      background-color: $primary;
+      clip-path: polygon(58% 0, 100% 0, 100% 100%, 48% 100%);
+      background-image: url(../assets/img/portraitDraw2.png);
+    }
+  }
+  .text-wraper{
+    background: rgb(247,247,247);
+    background: linear-gradient(180deg, $primary 50%, $accent 60%);
+  }
+  .clip{
+    background-color: $accent;
+    height: 40px;
+    clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
+  }
+}
 
 #about-tools-section-mobile{
   background-color: $secondary;
