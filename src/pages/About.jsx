@@ -4,13 +4,12 @@ import AboutToolsSectionMobile from '../components/AboutToolsSectionMobile';
 import AboutToolsSection from '../components/AboutToolsSection';
 import AboutXPSectionMobile from '../components/AboutXPSectionMobile';
 import AboutXPSection from '../components/AboutXPSection';
+import Mosaic from '../components/Mosaic';
 
 export function About() {
   const [isMainNavVisible, setIsMainNavVisible] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); 
   const [mosaicSize, setMosaicSize] = useState(6);
-  const square = Array.from({ length: mosaicSize * mosaicSize }, (_, i) => i + 1);
-  const opacityValues = [10, 20, 30, 40, 50, 60];
   // Text content for front-end and back-end sections
   const titleFront = "Calcul créatif";
   const subTitleFront = "Développeuse Front-end";
@@ -113,6 +112,12 @@ export function About() {
 
   const displayFullLists = windowWidth > 1280;
 
+
+
+  
+  
+  
+
   return (
     <main>
       <MainNav isVisible={isMainNavVisible}/>
@@ -120,40 +125,15 @@ export function About() {
       <section id="about-hero-banner-mobile" className="lg:hidden bg-red-300 overflow-hidden">
         <div className="split-screen-wraper relative">
           <div className="layer one h-[100vw] w-full">
-          <div className='mosaic-wraper h-[100vw] w-[100vw] overflow-hidden absolute top-0 left-0 z-[11] '>
-            <div className='mosaic primary h-[150vw] w-[150vw]'>
-              <div className={`grid grid-flow-col grid-rows-6 gap-0`}>
-                {square.map((num, index) => {
-                  const opacityIndex = index % opacityValues.length; // Tourne en boucle dans le tableau
-                  const opacityValue = opacityValues[opacityIndex] / 100; // Convertir pour CSS
-
-                  return (
-                    <div key={num} className="square w-[25vw] h-[25vw] bg-red-300" style={{ opacity: opacityValue }}>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className='mosaic-wraper h-[100vw] w-[100vw] overflow-hidden absolute top-0 left-0 z-[11] '>
+              <Mosaic mosaicSize={mosaicSize} styleName="primary"/>
             </div>
-          </div>
           </div>
           <div className="layer two h-[100vw] w-full  absolute top-0 left-0 z-10">
-          <div className='mosaic-wraper h-[100vw] w-[100vw] overflow-hidden absolute top-0 left-0 z-[200] '>
-            <div className='mosaic accent h-[150vw] w-[150vw]'>
-              <div className={`grid grid-flow-col grid-rows-6 gap-0`}>
-                {square.map((num, index) => {
-                  const opacityIndex = index % opacityValues.length; // Tourne en boucle dans le tableau
-                  const opacityValue = opacityValues[opacityIndex] / 100; // Convertir pour CSS
-
-                  return (
-                    <div key={num} className="square w-[25vw] h-[25vw] bg-red-300" style={{ opacity: opacityValue }}>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className='mosaic-wraper two h-[100vw] w-[100vw] overflow-hidden absolute top-0 left-0 z-[11] '>
+              <Mosaic mosaicSize={mosaicSize} styleName="accent"/>
             </div>
           </div>
-          </div>
-          
         </div>
         <div className="text-wraper">
           <div className='px-[25px]'>
