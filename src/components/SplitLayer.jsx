@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, {forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle, title, text, layerPosition , color}, ref) => {
@@ -31,7 +31,7 @@ const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle,
                 <i className="text-[30px]  bi bi-linkedin"></i>
               </a>
           </div>
-          <div className="flex-1  flex justify-center ">      
+          <div className={`flex-1  flex justify-center`}>      
             <button onClick={handleClickGoToAbout} className="px-[40px] pt-[8px] pb-[10px] ">Mon parcours</button>
           </div>
           <div className="flex-1 flex justify-end"></div>

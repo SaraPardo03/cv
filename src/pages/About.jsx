@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import MainNav from '../components/MainNav';
 import AboutToolsSectionMobile from '../components/AboutToolsSectionMobile';
 import AboutToolsSection from '../components/AboutToolsSection';
 import AboutXPSectionMobile from '../components/AboutXPSectionMobile';
 import AboutXPSection from '../components/AboutXPSection';
 import Mosaic from '../components/Mosaic';
-
+import AboutSplitLayer from '../components/AboutSplitLayer';
 export function About() {
   const [isMainNavVisible, setIsMainNavVisible] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); 
@@ -112,12 +112,6 @@ export function About() {
 
   const displayFullLists = windowWidth > 1280;
 
-
-
-  
-  
-  
-
   return (
     <main>
       <MainNav isVisible={isMainNavVisible}/>
@@ -188,6 +182,14 @@ export function About() {
       />
       <AboutToolsSectionMobile  phpTools={phpTools} pythonTools={pythonTools} bashTools={bashTools} bddTools={bddTools} htmlCss={htmlCss} javascript={javascript} uiUx={uiUx}/>
       <div className='hidden lg:block scroll-snap-container'>
+        <div className='snap'>
+          <section id="about-hero-banner" className="hidden lg:block">
+            <div className="split-screen-wraper">
+              <AboutSplitLayer subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="one" color="color-text-dark" isButtonVisible="hidden"/>
+              <AboutSplitLayer subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="two" color="color-text-light" isButtonVisible="hidden"/>
+            </div>
+          </section>
+        </div>
         <div className='snap'>
           <AboutXPSection 
             date="2024-2025" 

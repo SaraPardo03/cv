@@ -423,6 +423,9 @@ button.clip.primary{
     transform: rotate(270deg);
     font-size: 25px;
   }
+  a:hover{
+    color: $accent;
+  }
 }
 
 #main-nav-mobile{
@@ -559,7 +562,6 @@ button.clip.primary{
     font-size: 3rem;
   }
   .split-screen-wraper{
-    background-color: red;
     position: relative;
     .split-screen-layer{
       width: 100%;
@@ -735,6 +737,78 @@ button.clip.primary{
     clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
   }
 }
+
+/* ABOUT HERO BANNER  */ 
+#about-hero-banner {
+  min-height: 100vh;
+  min-height: 100svh;
+  h2.title{
+    font-size: 3rem;
+  }
+  .split-screen-wraper{
+    position: relative;
+    .split-screen-layer{
+      width: 100%;
+      padding-top: $main-nav-height;
+      background-color: $primary;
+      height: calc(100vh);
+      height: calc(100svh);
+      .img{
+        background-image: url(../assets/img/portraitDraw2.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    .split-screen-layer.color-text-light{
+      button{
+        background-color:$primary;
+        color: $dark-deep;
+        transition: all 0.3s ease-in;
+      }
+      button:hover{
+        background-color: $secondary;
+        color: $light-deep;
+      }
+      i{
+        color: $primary;
+        transition: all 0.3s ease-in-out;
+      }
+      i:hover{
+        color: $secondary;
+      }
+    }
+    .split-screen-layer.color-text-dark{
+      button{
+        background-color: $accent;
+        color: $light-deep;
+        transition: all 0.3s ease-in-out;
+      }
+      button:hover{
+        background-color: $secondary;
+      }
+      i{
+        color: $accent;
+        transition: all 0.3s ease-in-out;
+      }
+      i:hover{
+        color: $secondary;
+      }
+    }
+    .split-screen-layer.two{
+      background-color: $accent;
+      //clip-path: polygon(0px 0px, 53% 0%, 49% 100%, 0px 100%);
+      position: absolute;
+      top:0;
+      left:0;
+      .img{
+        background-position: center;
+        background-image: url(../assets/img/portraitNB.png);
+      }
+    }
+  }
+}
+
 
 #about-tools-section-mobile{
   background-color: $secondary;
