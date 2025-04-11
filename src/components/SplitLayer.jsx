@@ -14,16 +14,16 @@ const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle,
           <div className="back flex-1">
             <h1 className="subtitle pale">{subTitle}</h1>
             <h2 className="title deep pb-[10px]">{title}</h2>
-            <p>{text}</p>
+            <p className="">{text}</p>
           </div>
-          <div className="front flex-1">
-            <h1 className="subtitle pale">{subTitleFront}</h1>
-            <h2 className="title deep pb-[10px]">{titleFront}</h2>
-            <p>{textFront}</p>
+          <div className={`front flex-1 flex flex-col items-end`}>
+            <h1 className={`subtitle pale ${layerPosition==="two"? "hidden":""}`}>{subTitleFront}</h1>
+            <h2 className={`title deep pb-[10px] ${layerPosition==="two"? "hidden":""}`}>{titleFront}</h2>
+            <p className={`text-right ${layerPosition==="two"? "hidden":""}`}>{textFront}</p>
           </div>
         </div>
-        <div className="h-[40px] flex flex-row px-[80px] my-[15px]">
-          <div className="flex-1">
+        <div className="h-[40px] flex flex-row px-[80px] my-[30px]">
+          <div className="hidden flex-1">
               <a href="https://github.com/SaraPardo03" target="_blank" rel="noopener noreferrer" className="px-[4px]">
                 <i className="text-[30px] bi bi-github"></i>
               </a>
@@ -34,7 +34,7 @@ const SplitLayer = forwardRef(({ subTitleFront, titleFront, textFront, subTitle,
           <div className={`flex-1  flex justify-center`}>      
             <button onClick={handleClickGoToAbout} className="px-[40px] pt-[8px] pb-[10px] ">Mon parcours</button>
           </div>
-          <div className="flex-1 flex justify-end"></div>
+          <div className="hidden flex-1 flex justify-end"></div>
         </div>
       </div>
       <div className="flex-1  img">
