@@ -740,8 +740,8 @@ button.clip.primary{
 
 /* ABOUT HERO BANNER  */ 
 #about-hero-banner {
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 90vh;
+  min-height: 90svh;
   h2.title{
     font-size: 3rem;
   }
@@ -751,8 +751,8 @@ button.clip.primary{
       width: 100%;
       padding-top: $main-nav-height;
       background-color: $primary;
-      height: calc(100vh);
-      height: calc(100svh);
+      height: calc(90vh);
+      height: calc(90svh);
       .img{
         background-image: url(../assets/img/portraitDraw2.png);
         background-position: center;
@@ -809,6 +809,12 @@ button.clip.primary{
   }
 }
 
+.about-section-title{
+  .clip{
+    //clip-path:polygon(35% 0, 70% 0, 65% 100%, 30% 100%);
+    //clip-path:polygon(10% 0, 95% 0, 90% 100%, 5% 100%);
+  }
+}
 
 #about-tools-section-mobile{
   background-color: $secondary;
@@ -902,12 +908,25 @@ button.clip.primary{
 }
 
 .about-xp-section{
-  min-height: calc(100vh);
-  min-height: calc(100svh);
+  overflow: hidden;
+  //min-height: calc(100vh);
+  //min-height: calc(100svh);
   background-color: $primary;
+  .time-line{
+    background: linear-gradient(to right, transparent 0%, transparent 10px, $primary calc(10px), $primary calc(13px), transparent calc(13px), transparent 100%);  
+    .dot{
+      border-width: 2px;
+      margin-top:26px;
+    }
+  }
+  .time-line.accent{
+    z-index: 11;
+    background: linear-gradient(to right, transparent 0%, transparent 10px, $accent calc(10px), $accent calc(13px), transparent calc(13px), transparent 100%);  
+  }
   .about-xp-date{
     background-color: $secondary;
-    clip-path: polygon(0 0, 0 50%, 100% 0);
+    //clip-path: polygon(0 0, 0 50%, 100% 0);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
   }
   .about-xp-company{
     background-color: $secondary;
@@ -922,7 +941,7 @@ button.clip.primary{
   .skills-list {
     .skill{
       width: 120px;
-      height: 80px;
+      height: none;
       background-color: $light-pale;
       color:$dark-deep;
     }
@@ -938,8 +957,8 @@ button.clip.primary{
 }
 
 .about-xp-section.odd{
-  min-height: calc(100vh);
-  min-height: calc(100svh);
+  //min-height: calc(100vh);
+  //min-height: calc(100svh);
   background-color: $secondary;
   .about-xp-date{
     background-color: $primary;

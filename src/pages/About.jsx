@@ -34,7 +34,7 @@ export function About() {
 
   // BB 
   const bbStartTitle = "Projets clés";
-  const bbStart = "Stage de 3 mois durant lequel j'ai collaboré en équipe pour moderniser le site web de l'entreprise. J'ai intégré un design moderne et interactif, en implémentant des animations fluides pour améliorer l'expérience utilisateur. "
+  const bbStar = "Stage de 3 mois durant lequel j'ai collaboré en équipe pour moderniser le site web de l'entreprise. J'ai intégré un design moderne et interactif, en implémentant des animations fluides pour améliorer l'expérience utilisateur. "
   const bbList = [
     "Développement de thèmes WordPress sur mesure, adaptés aux maquettes fournies,",
     "Intégration front-end avec HTML, CSS, Sass, JavaScript et Tailwind, optimisée pour le SEO,",
@@ -60,7 +60,7 @@ export function About() {
 
   // TOPNET 
   const topnetStartTitle = "Expériences marquantes";
-  const topnetStart = "Création d'une application de matching pour l’optimisation de l’affectation des employés aux chantiers, en prenant en compte compétences, disponibilités, documents, planning, temps de trajet et respect de la CCT, avec gestion des bases de données et collaboration inter-équipes."
+  const topnetStar = "Création d'une application de matching pour l’optimisation de l’affectation des employés aux chantiers, en prenant en compte compétences, disponibilités, documents, planning, temps de trajet et respect de la CCT, avec gestion des bases de données et collaboration inter-équipes."
   const topnetList = [
     "Développement et maintenance d'applications métiers,",
     "Gestion et optimisation des bases de données, intégration d'API REST,",
@@ -88,7 +88,7 @@ export function About() {
 
   // HYL 
   const hylStartTitle = "Expériences marquantes";
-  const hylStart = "Création d'une application de matching pour l’optimisation de l’affectation des employés aux chantiers, en prenant en compte compétences, disponibilités, documents, planning, temps de trajet et respect de la CCT, avec gestion des bases de données et collaboration inter-équipes."
+  const hylStar = "Création d'une application de matching pour l’optimisation de l’affectation des employés aux chantiers, en prenant en compte compétences, disponibilités, documents, planning, temps de trajet et respect de la CCT, avec gestion des bases de données et collaboration inter-équipes."
   const hylList = [
     "Développement de sites web dynamiques (HTML5, CSS3, PHP, SQL)",
     "Gestion de bases de données, sauvegardes et restaurations",
@@ -181,7 +181,7 @@ export function About() {
         teamType={hylTeamType}
       />
       <AboutToolsSectionMobile  phpTools={phpTools} pythonTools={pythonTools} bashTools={bashTools} bddTools={bddTools} htmlCss={htmlCss} javascript={javascript} uiUx={uiUx}/>
-      <div className='hidden lg:block scroll-snap-container'>
+      <div className='hidden lg:block scroll-snap-container222'>
         <div className='snap'>
           <section id="about-hero-banner" className="hidden lg:block">
             <div className="split-screen-wraper">
@@ -189,6 +189,25 @@ export function About() {
               <AboutSplitLayer subTitleFront={subTitleFront} titleFront={titleFront} textFront={textFront} subTitle={subTitleBack} title={titleBack} text={textBack} layerPosition="two" color="color-text-light" isButtonVisible="hidden"/>
             </div>
           </section>
+          <div className='about-section-title relative'>
+            <div className='h-[10vh] flex w-full bg-primary justify-center items-center color-text-light'>
+              <div><p>Outils</p></div>
+            </div>
+            <div className='h-[10vh] absolute top-0 left-0 clip flex w-full bg-secondary justify-center items-center color-text-light'>
+              <div><p>Outils</p></div>
+            </div>
+          </div>
+          <div className='snap'>
+            <AboutToolsSection phpTools={phpTools} pythonTools={pythonTools} bashTools={bashTools} bddTools={bddTools} htmlCss={htmlCss} javascript={javascript} uiUx={uiUx} />
+          </div>
+          <div className='about-section-title relative'>
+          <div className='h-[10vh] flex w-full bg-primary justify-center items-center color-text-light'>
+            <div><p>Expériences</p></div>
+          </div>
+          <div className='h-[10vh] absolute top-0 left-0 clip flex w-full bg-secondary justify-center items-center color-text-light'>
+            <div><p>Expériences</p></div>
+          </div>
+        </div>
         </div>
         <div className='snap'>
           <AboutXPSection 
@@ -197,6 +216,7 @@ export function About() {
             npa="Genève" title="Développeuse Fullstack" 
             list={displayFullLists ? bbList : bbListSort}
             skills={bbSkills} 
+            star={bbStar}
             companySize={bbCompanySize} 
             companyType={bbCompanyType} 
             teamSize={bbTeamSize} 
@@ -211,6 +231,7 @@ export function About() {
             title="Développeuse front-end" 
             list={displayFullLists ? topnetList : topnetListSort}
             skills={topnetSkills} 
+            star={topnetStar}
             companySize={topnetCompanySize} 
             companyType={topnetCompanyType} 
             teamSize={topnetTeamSize} 
@@ -230,9 +251,6 @@ export function About() {
             teamType={hylTeamType}
           />
         </div>
-        <div className='snap'>
-          <AboutToolsSection phpTools={phpTools} pythonTools={pythonTools} bashTools={bashTools} bddTools={bddTools} htmlCss={htmlCss} javascript={javascript} uiUx={uiUx} />
-      </div>
       </div>
     </main>
   );
